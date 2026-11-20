@@ -1,0 +1,22 @@
+{
+  "name": "Sasta Dawa — same medicine, lower price",
+  "short_name": "Sasta Dawa",
+  "description": "Find the same salt cheaper and see which pharmacy nearby has it.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F7FAF9",
+  "theme_color": "#0F766E",
+  "lang": "hi",
+  "dir": "ltr",
+  "categories": ["health", "medical", "shopping"],
+  "icons": [
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Scan a prescription", "url": "/?action=scan" },
+    { "name": "My medicines", "url": "/my-medicines" }
+  ]
+}

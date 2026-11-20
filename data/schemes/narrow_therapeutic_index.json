@@ -1,0 +1,19 @@
+{
+  "_note": "Salts with a narrow therapeutic index. Brand-to-brand switching can change blood levels, so the UI always shows an 'ask your doctor before switching' warning for these. Curated from standard clinical references.",
+  "salts": [
+    "levothyroxine",
+    "warfarin",
+    "phenytoin",
+    "carbamazepine",
+    "valproate",
+    "lithium",
+    "digoxin",
+    "ciclosporin",
+    "tacrolimus",
+    "theophylline",
+    "procainamide",
+    "sirolimus",
+    "everolimus",
+    "clozapine"
+  ]
+}

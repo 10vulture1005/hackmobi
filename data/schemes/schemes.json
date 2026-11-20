@@ -1,0 +1,227 @@
+{
+  "_note": "Hand-curated scheme knowledge base. Every entry carries a source_url; the scheme assistant must cite entries by id and may not add facts outside this file. Eligibility and document lists are summaries — always confirm against the source URL, since scheme rules change.",
+  "last_reviewed": "2026-11-20",
+  "schemes": [
+    {
+      "id": "pmbjp",
+      "title": "Pradhan Mantri Bhartiya Janaushadhi Pariyojana (Jan Aushadhi)",
+      "summary": "A central government programme that sells quality generic medicines at much lower prices through dedicated Jan Aushadhi Kendras. Prices are set well below the branded market rate and the medicines are tested for quality.",
+      "eligibility": ["Open to everyone", "No card, income proof or registration needed"],
+      "documents": ["Doctor's prescription for prescription-only medicines"],
+      "how_to_claim": "Walk into any Jan Aushadhi Kendra and ask for the generic version of your medicine by its salt name. Use the Jan Aushadhi Sugam app or the store locator on the programme website to find your nearest Kendra.",
+      "covers": ["generic medicines", "surgical items", "nutraceuticals"],
+      "scope": "national",
+      "tags": ["generic", "cheap medicine", "janaushadhi", "kendra", "price", "everyone"],
+      "source_url": "https://janaushadhi.gov.in/"
+    },
+    {
+      "id": "pmjay",
+      "title": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)",
+      "summary": "Health cover of up to ₹5 lakh per family per year for secondary and tertiary hospital treatment at empanelled public and private hospitals. Treatment is cashless at the hospital; medicines during the hospital stay are included in the package.",
+      "eligibility": [
+        "Families identified as deprived in the SECC 2011 database, and listed occupational categories",
+        "Beneficiary status can be checked on the PM-JAY portal or at a Common Service Centre",
+        "Senior citizens aged 70 and above are covered under the Vay Vandana expansion"
+      ],
+      "documents": ["Aadhaar or another government photo ID", "Ration card or family ID", "Ayushman card, if already issued"],
+      "how_to_claim": "Check eligibility on the PM-JAY website or at an empanelled hospital's Ayushman Mitra desk, get the Ayushman card made, then show it at the hospital before admission.",
+      "covers": ["hospital treatment", "surgery", "medicines during admission", "diagnostics during admission"],
+      "scope": "national",
+      "tags": ["hospital", "surgery", "insurance", "5 lakh", "ayushman", "admission", "cashless", "senior citizen"],
+      "source_url": "https://pmjay.gov.in/"
+    },
+    {
+      "id": "ab-vay-vandana",
+      "title": "Ayushman Vay Vandana (70+ senior citizens)",
+      "summary": "An expansion of PM-JAY that gives every citizen aged 70 and above cover for hospital treatment, regardless of family income.",
+      "eligibility": ["Age 70 years or above", "Income is not a condition"],
+      "documents": ["Aadhaar showing date of birth"],
+      "how_to_claim": "Register on the Ayushman app or portal, or at an empanelled hospital, to get the Vay Vandana card.",
+      "covers": ["hospital treatment for senior citizens"],
+      "scope": "national",
+      "tags": ["senior citizen", "elderly", "70", "old age", "hospital"],
+      "source_url": "https://pmjay.gov.in/"
+    },
+    {
+      "id": "nhm-free-drugs",
+      "title": "Free Drugs Service Initiative (National Health Mission)",
+      "summary": "Under the National Health Mission, states provide essential medicines free of cost at government health facilities — from sub-centres and health and wellness centres up to district hospitals. The exact medicine list is set by each state.",
+      "eligibility": ["Anyone treated at a government health facility", "No income test"],
+      "documents": ["Hospital OPD slip or card", "Prescription written by the government doctor"],
+      "how_to_claim": "Get your prescription from the government doctor and collect the medicines from the facility's drug counter or dispensary. Ask for the state Essential Drug List if a medicine is said to be unavailable.",
+      "covers": ["essential medicines at government facilities", "diagnostics under the free diagnostics initiative"],
+      "scope": "national",
+      "tags": ["free medicine", "government hospital", "essential", "nhm", "district hospital", "chc", "phc"],
+      "source_url": "https://nhm.gov.in/index1.php?lang=1&level=2&sublinkid=1206&lid=611"
+    },
+    {
+      "id": "ran",
+      "title": "Rashtriya Arogya Nidhi (RAN)",
+      "summary": "Financial assistance to patients living below the poverty line who are suffering from major life-threatening diseases, for treatment at designated government super-speciality hospitals.",
+      "eligibility": [
+        "Family living below the poverty line",
+        "Life-threatening illness needing super-speciality treatment",
+        "Treatment at a government hospital or institute"
+      ],
+      "documents": [
+        "BPL certificate or ration card",
+        "Income certificate",
+        "Medical estimate and case summary from the treating government hospital",
+        "Aadhaar"
+      ],
+      "how_to_claim": "The treating government hospital's medical superintendent forwards the application with a cost estimate to the Ministry of Health and Family Welfare or the state's RAN fund.",
+      "covers": ["cancer treatment", "major surgery", "life-threatening illness"],
+      "scope": "national",
+      "tags": ["cancer", "serious illness", "bpl", "poor", "financial help", "treatment cost"],
+      "source_url": "https://main.mohfw.gov.in/Major-Programmes/rashtriya-arogya-nidhi-ran"
+    },
+    {
+      "id": "hmcpf",
+      "title": "Health Minister's Cancer Patient Fund (HMCPF)",
+      "summary": "A fund within Rashtriya Arogya Nidhi dedicated to poor cancer patients, with revolving funds placed at regional cancer centres so help can be released quickly.",
+      "eligibility": ["Cancer diagnosis", "Household income below the limit set for the fund", "Treatment at a recognised regional cancer centre"],
+      "documents": ["Income certificate", "Cancer diagnosis and treatment estimate", "Aadhaar", "Ration card"],
+      "how_to_claim": "Apply through the regional cancer centre treating you; the centre can sanction assistance from its revolving fund.",
+      "covers": ["cancer treatment", "chemotherapy", "radiotherapy"],
+      "scope": "national",
+      "tags": ["cancer", "chemotherapy", "poor", "financial help"],
+      "source_url": "https://main.mohfw.gov.in/Major-Programmes/rashtriya-arogya-nidhi-ran"
+    },
+    {
+      "id": "hmdg",
+      "title": "Health Minister's Discretionary Grant (HMDG)",
+      "summary": "A one-time grant for poor patients to help with the cost of treatment for specified serious conditions at government hospitals, where the cost is beyond the family's means.",
+      "eligibility": ["Annual family income below the ceiling notified for the grant", "Treatment at a government hospital"],
+      "documents": ["Income certificate", "Medical estimate from the government hospital", "Aadhaar"],
+      "how_to_claim": "Submit the prescribed application through the treating government hospital to the Ministry of Health and Family Welfare.",
+      "covers": ["treatment cost support", "surgery"],
+      "scope": "national",
+      "tags": ["financial help", "poor", "surgery", "treatment cost"],
+      "source_url": "https://main.mohfw.gov.in/Major-Programmes/rashtriya-arogya-nidhi-ran"
+    },
+    {
+      "id": "pmndp",
+      "title": "Pradhan Mantri National Dialysis Programme",
+      "summary": "Free haemodialysis for patients with kidney failure at district hospitals, provided under the National Health Mission in partnership with service providers.",
+      "eligibility": ["Diagnosed kidney failure needing dialysis", "Treatment at a participating district hospital dialysis unit", "Priority for BPL families"],
+      "documents": ["Nephrologist's prescription or referral", "Hospital registration card", "Aadhaar", "BPL or ration card where priority applies"],
+      "how_to_claim": "Register at the dialysis unit of your district hospital; the hospital schedules the sessions.",
+      "covers": ["dialysis sessions", "dialysis consumables"],
+      "scope": "national",
+      "tags": ["kidney", "dialysis", "renal", "free treatment"],
+      "source_url": "https://nhm.gov.in/index1.php?lang=1&level=3&sublinkid=1221&lid=661"
+    },
+    {
+      "id": "amrit",
+      "title": "AMRIT Pharmacy (Affordable Medicines and Reliable Implants for Treatment)",
+      "summary": "Pharmacies inside major government hospitals that sell cancer and cardiovascular medicines, implants and other high-cost drugs at a steep discount to the market price.",
+      "eligibility": ["Open to any patient", "No income test"],
+      "documents": ["Prescription for prescription-only medicines"],
+      "how_to_claim": "Buy directly at the AMRIT outlet in the hospital where you are being treated.",
+      "covers": ["cancer medicines", "heart medicines", "cardiac implants", "high-cost drugs"],
+      "scope": "national",
+      "tags": ["cancer", "heart", "expensive medicine", "discount", "hospital pharmacy", "implant"],
+      "source_url": "https://www.hllnetwork.com/amrit"
+    },
+    {
+      "id": "npcdcs",
+      "title": "National Programme for Prevention and Control of Non-Communicable Diseases (NP-NCD)",
+      "summary": "Free screening and treatment for hypertension, diabetes and common cancers at health and wellness centres and NCD clinics, including free supply of the listed medicines.",
+      "eligibility": ["Anyone aged 30 and above for screening", "Treatment at a government health and wellness centre or NCD clinic"],
+      "documents": ["Aadhaar or ABHA ID", "Facility card"],
+      "how_to_claim": "Visit your nearest health and wellness centre or district NCD clinic for screening, then collect the prescribed medicines from the facility.",
+      "covers": ["blood pressure medicines", "diabetes medicines", "screening tests"],
+      "scope": "national",
+      "tags": ["diabetes", "blood pressure", "hypertension", "sugar", "bp", "free medicine", "screening", "chronic"],
+      "source_url": "https://nhm.gov.in/index1.php?lang=1&level=2&sublinkid=1048&lid=604"
+    },
+    {
+      "id": "nikshay-poshan",
+      "title": "Ni-kshay Poshan Yojana (TB nutrition support)",
+      "summary": "Direct benefit transfer to every notified tuberculosis patient for nutritional support, for the whole duration of treatment. TB medicines themselves are free under the National TB Elimination Programme.",
+      "eligibility": ["Notified TB patient under treatment", "Bank account linked for the transfer"],
+      "documents": ["TB notification or Ni-kshay ID", "Bank account details", "Aadhaar"],
+      "how_to_claim": "Your TB treatment centre registers you on the Ni-kshay portal; the amount is credited to your bank account monthly.",
+      "covers": ["nutrition support during TB treatment", "free TB medicines"],
+      "scope": "national",
+      "tags": ["tb", "tuberculosis", "nutrition", "free medicine", "dbt"],
+      "source_url": "https://www.nikshay.in/"
+    },
+    {
+      "id": "ntep-free-drugs",
+      "title": "National TB Elimination Programme — free anti-TB medicines",
+      "summary": "All first-line and second-line anti-tuberculosis medicines are given free of charge at government DOTS and TB centres, including drug-resistant TB regimens.",
+      "eligibility": ["Diagnosed TB, treated at a government TB centre or a notified private provider under the programme"],
+      "documents": ["TB diagnosis report", "Ni-kshay ID once notified"],
+      "how_to_claim": "Register at the nearest district TB centre or DOTS centre; medicines are dispensed free for the full course.",
+      "covers": ["anti-TB medicines", "TB diagnostics"],
+      "scope": "national",
+      "tags": ["tb", "tuberculosis", "free medicine", "dots"],
+      "source_url": "https://tbcindia.gov.in/"
+    },
+    {
+      "id": "suvidha",
+      "title": "Jan Aushadhi Suvidha Sanitary Napkins",
+      "summary": "Oxo-biodegradable sanitary napkins sold at ₹1 per pad at Jan Aushadhi Kendras, to make menstrual hygiene affordable.",
+      "eligibility": ["Open to everyone"],
+      "documents": [],
+      "how_to_claim": "Ask for Suvidha napkins at any Jan Aushadhi Kendra.",
+      "covers": ["sanitary napkins"],
+      "scope": "national",
+      "tags": ["sanitary pad", "napkin", "women", "hygiene", "janaushadhi"],
+      "source_url": "https://janaushadhi.gov.in/"
+    },
+    {
+      "id": "sugam-app",
+      "title": "Jan Aushadhi Sugam app",
+      "summary": "A free government app that finds the nearest Jan Aushadhi Kendra, searches generic medicines by name and shows the price difference against the branded equivalent.",
+      "eligibility": ["Anyone with an Android or iOS phone"],
+      "documents": [],
+      "how_to_claim": "Install 'Janaushadhi Sugam' from your phone's app store, allow location access and search for your medicine.",
+      "covers": ["store locator", "generic price comparison"],
+      "scope": "national",
+      "tags": ["app", "locator", "kendra", "price", "janaushadhi", "find store"],
+      "source_url": "https://janaushadhi.gov.in/"
+    },
+    {
+      "id": "esic",
+      "title": "ESIC medical benefit",
+      "summary": "Insured workers and their families get medical care, including medicines, at ESIC dispensaries and hospitals, funded by employer and employee contributions.",
+      "eligibility": ["Employee covered under the ESI Act through their workplace", "Wages within the ESI coverage limit"],
+      "documents": ["ESIC insurance number or Pehchan card", "Aadhaar"],
+      "how_to_claim": "Go to your allotted ESIC dispensary or hospital; treatment and medicines are provided against your insurance number.",
+      "covers": ["outpatient care", "medicines", "hospital treatment", "cash sickness benefit"],
+      "scope": "national",
+      "tags": ["worker", "employee", "factory", "esic", "insurance", "free medicine"],
+      "source_url": "https://www.esic.gov.in/"
+    },
+    {
+      "id": "up-mmjaa",
+      "title": "Mukhyamantri Jan Arogya Abhiyan (Uttar Pradesh)",
+      "summary": "A state scheme in Uttar Pradesh that extends PM-JAY-style hospital cover of up to ₹5 lakh per family per year to families left out of the central list.",
+      "eligibility": [
+        "Resident of Uttar Pradesh",
+        "Family in the state-identified category not covered by PM-JAY",
+        "Verify your name on the state portal or at a CSC"
+      ],
+      "documents": ["Aadhaar", "Ration card or family ID", "Residence proof"],
+      "how_to_claim": "Get the Ayushman or state card made at a Common Service Centre or empanelled hospital, then use it at an empanelled hospital.",
+      "covers": ["hospital treatment", "surgery", "medicines during admission"],
+      "scope": "state:Uttar Pradesh",
+      "tags": ["uttar pradesh", "up", "state scheme", "hospital", "5 lakh", "lucknow"],
+      "source_url": "https://www.sachis.in/"
+    },
+    {
+      "id": "pmnrf",
+      "title": "Prime Minister's National Relief Fund (medical assistance)",
+      "summary": "Partial assistance from the PMNRF towards the cost of major medical treatment such as heart surgery, kidney transplant, cancer treatment and acid-attack care, for people who cannot afford it.",
+      "eligibility": ["Unable to meet the treatment cost", "Treatment at a government or recognised hospital"],
+      "documents": ["Medical estimate from the hospital", "Income certificate", "Aadhaar", "Application addressed to the PMNRF"],
+      "how_to_claim": "Submit the application with the hospital's cost estimate through the PMO's PMNRF portal or by post.",
+      "covers": ["heart surgery", "kidney transplant", "cancer treatment", "major medical cost"],
+      "scope": "national",
+      "tags": ["financial help", "surgery", "transplant", "cancer", "poor", "relief fund"],
+      "source_url": "https://pmnrf.gov.in/"
+    }
+  ]
+}

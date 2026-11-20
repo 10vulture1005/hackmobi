@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 820" width="640" height="820" role="img" aria-label="Demo prescription">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffdf7"/>
+      <stop offset="100%" stop-color="#f6f1e6"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="0.4"/></filter>
+  </defs>
+  <rect width="640" height="820" fill="url(#paper)"/>
+  <rect x="0" y="0" width="640" height="6" fill="#0f766e"/>
+  <text x="40" y="56" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#0f766e" text-anchor="start">Demo Clinic</text>
+  <text x="40" y="78" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#6b7572" text-anchor="start">Indira Nagar, Lucknow</text>
+  <text x="600" y="56" font-family="Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#1c2b2a" text-anchor="end">Dr. A. K. Verma (demo)</text>
+  <text x="600" y="76" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#6b7572" text-anchor="end">Reg. UPMC/DEMO/48213</text>
+  <line x1="40" y1="96" x2="600" y2="96" stroke="#d6d0c2" stroke-width="1.5"/>
+  <text x="40" y="126" font-family="Helvetica,Arial,sans-serif" font-size="15" font-weight="600" fill="#1c2b2a" text-anchor="start">Patient: Sunita Devi, 34 F</text>
+  <text x="600" y="126" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#6b7572" text-anchor="end">Date: __ / __ / ____</text>
+  <text x="40" y="182" font-family="'Segoe Script','Bradley Hand','Comic Sans MS',cursive" font-size="44" font-weight="700" fill="#0f766e" text-anchor="start">Rx</text>
+  <text x="96" y="230" font-family="'Segoe Script','Bradley Hand','Comic Sans MS',cursive" font-size="21" font-weight="400" fill="#17307a" text-anchor="start">Tab. Dolo 650        1-0-1  x 3 days</text>
+  <text x="96" y="282" font-family="'Segoe Script','Bradley Hand','Comic Sans MS',cursive" font-size="21" font-weight="400" fill="#17307a" text-anchor="start">Tab. Augmentin 625 Duo  1-0-1  x 5 days</text>
+  <text x="96" y="334" font-family="'Segoe Script','Bradley Hand','Comic Sans MS',cursive" font-size="21" font-weight="400" fill="#17307a" text-anchor="start">Syp. Ascoril D Plus   100 ml</text>
+  <text x="96" y="386" font-family="'Segoe Script','Bradley Hand','Comic Sans MS',cursive" font-size="21" font-weight="400" fill="#17307a" text-anchor="start">Steam inhalation, warm water gargle</text>
+  <line x1="380" y1="700" x2="600" y2="700" stroke="#b9b2a2" stroke-width="1.2"/>
+  <text x="600" y="724" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#8a8578" text-anchor="end">Signature / Stamp</text>
+  <text x="490" y="686" font-family="'Segoe Script','Bradley Hand','Comic Sans MS',cursive" font-size="20" font-weight="400" fill="#17307a" text-anchor="middle">Dr. A. K. Verma</text>
+  <text x="320" y="470" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="88" font-weight="700" fill="#0f766e" opacity="0.08" transform="rotate(-24 320 470)">DEMO</text>
+  <text x="40" y="786" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#8a8578">Synthetic demo document — not a real prescription. Fictional clinic and prescriber.</text>
+</svg>
