@@ -3,7 +3,7 @@ import type { Dict } from './en'
 /** Hindi — the default language of the app. */
 export const hi: Dict = {
   app: {
-    name: 'सस्ता दवा',
+    name: 'औषधि',
     tagline: 'वही दवा। कम दाम। आपके पास।',
     demoBadge: 'डेमो डेटा',
   },
@@ -243,7 +243,7 @@ export const hi: Dict = {
     noResults: 'ऑफ़लाइन दिखाने के लिए कुछ सेव नहीं है।',
   },
   share: {
-    text: '{medicine} का दाम {oldPrice} है। वही साल्ट {store} पर {newPrice} में ({distance} किमी)। बचत {savings}। — सस्ता दवा',
+    text: '{medicine} का दाम {oldPrice} है। वही साल्ट {store} पर {newPrice} में ({distance} किमी)। बचत {savings}। — औषधि',
     copied: 'कॉपी हो गया',
     cardAlt: 'बचत कार्ड',
     download: 'कार्ड सेव करें',

@@ -193,7 +193,7 @@ export function ShareCard({
     if (!dataUrl) return
     try {
       const blob = await (await fetch(dataUrl)).blob()
-      const file = new File([blob], 'sasta-dawa.png', { type: 'image/png' })
+      const file = new File([blob], 'aushadhi.png', { type: 'image/png' })
       const nav = navigator as Navigator & { canShare?: (data: ShareData) => boolean }
       if (nav.canShare?.({ files: [file] })) {
         await navigator.share({ files: [file], text })
@@ -236,7 +236,7 @@ export function ShareCard({
           </Button>
           <a
             href={dataUrl ?? '#'}
-            download="sasta-dawa.png"
+            download="aushadhi.png"
             className="tap inline-flex items-center justify-center gap-2 rounded-full text-sm font-semibold text-primary hover:bg-primary-tint"
           >
             <Download size={15} aria-hidden />

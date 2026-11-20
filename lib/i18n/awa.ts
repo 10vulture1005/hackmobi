@@ -3,7 +3,7 @@ import type { Dict } from './en'
 /** Awadhi (अवधी) — the third language, for the Awadh belt around Lucknow. */
 export const awa: Dict = {
   app: {
-    name: 'सस्ता दवा',
+    name: 'औषधि',
     tagline: 'वही दवा। कम दाम। तोहरे नगीचे।',
     demoBadge: 'डेमो डेटा',
   },
@@ -243,7 +243,7 @@ export const awa: Dict = {
     noResults: 'ऑफलाइन देखावे बदे कुछ सेव नाहीं बा।',
   },
   share: {
-    text: '{medicine} क दाम {oldPrice} बा। वही साल्ट {store} पर {newPrice} में ({distance} किमी)। बचत {savings}। — सस्ता दवा',
+    text: '{medicine} क दाम {oldPrice} बा। वही साल्ट {store} पर {newPrice} में ({distance} किमी)। बचत {savings}। — औषधि',
     copied: 'कॉपी हो गइल',
     cardAlt: 'बचत कार्ड',
     download: 'कार्ड सेव करीं',

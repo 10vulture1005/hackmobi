@@ -5,7 +5,7 @@
  */
 export const en = {
   app: {
-    name: 'Sasta Dawa',
+    name: 'Aushadhi',
     tagline: 'Same medicine. Lower price. Near you.',
     demoBadge: 'Demo data',
   },
@@ -245,7 +245,7 @@ export const en = {
     noResults: 'Nothing saved to show offline yet.',
   },
   share: {
-    text: '{medicine} costs {oldPrice}. The same salt is {newPrice} at {store} ({distance} km). You save {savings}. — via Sasta Dawa',
+    text: '{medicine} costs {oldPrice}. The same salt is {newPrice} at {store} ({distance} km). You save {savings}. — via Aushadhi',
     copied: 'Copied',
     cardAlt: 'Savings card',
     download: 'Save card',

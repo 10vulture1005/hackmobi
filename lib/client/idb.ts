@@ -7,7 +7,7 @@
  * unavailable (private mode, blocked site data).
  */
 
-const DB_NAME = 'sasta-dawa'
+const DB_NAME = 'aushadhi'
 const DB_VERSION = 1
 const STORES = { results: 'results', medicines: 'medicines', prefs: 'prefs' } as const
 

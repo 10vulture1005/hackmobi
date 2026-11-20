@@ -35,7 +35,7 @@ SEED = os.path.join(ROOT, 'data', 'seed')
 CACHE = os.path.join(ROOT, 'data', 'raw', 'geocode_cache.json')
 OVERPASS = 'https://overpass-api.de/api/interpreter'
 NOMINATIM = 'https://nominatim.openstreetmap.org/search'
-UA = 'SastaDawa/0.1 (hackathon demo; contact via repository)'
+UA = 'Aushadhi/0.1 (hackathon demo; contact via repository)'
 
 # Lucknow, Uttar Pradesh: south,west,north,east
 DEFAULT_BBOX = os.environ.get('DEMO_CITY_BBOX', '26.72,80.82,26.95,81.05')

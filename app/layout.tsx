@@ -23,11 +23,11 @@ const devanagari = Noto_Sans_Devanagari({
 })
 
 export const metadata: Metadata = {
-  title: 'Sasta Dawa — same medicine, lower price, near you',
+  title: 'Aushadhi — same medicine, lower price, near you',
   description:
     'Find the same salt cheaper, see which pharmacy nearby has it, and check the government schemes you can use. Hindi, English and Awadhi.',
   manifest: '/manifest.webmanifest',
-  appleWebApp: { capable: true, title: 'Sasta Dawa', statusBarStyle: 'default' },
+  appleWebApp: { capable: true, title: 'Aushadhi', statusBarStyle: 'default' },
   icons: { icon: '/icons/icon.svg', apple: '/icons/icon-192.png' },
 }
 

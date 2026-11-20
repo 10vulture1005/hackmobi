@@ -1,4 +1,4 @@
-# Sasta Dawa (सस्ता दवा)
+# Aushadhi (औषधि)
 
 **Same medicine. Lower price. Near you.**
 
