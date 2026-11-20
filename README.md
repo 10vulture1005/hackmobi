@@ -5,7 +5,7 @@
 A citizen can type, say, photograph a prescription or photograph a medicine strip, and get:
 the same salt at a lower price, which pharmacy nearby has it, whether a prescription is
 required, grounded over-the-counter information, and the government schemes that may apply —
-in Hindi, English or Marathi, on a cheap Android phone, offline for anything already seen.
+in Hindi, English or Awadhi, on a cheap Android phone, offline for anything already seen.
 
 ```bash
 npm install
@@ -88,7 +88,7 @@ Set `GEMINI_API_KEY` and unset `DEMO_MODE` to route the same features through Ge
 | Prescription OCR | transcribe text into a fixed schema | every line is shown in an editable review list; nothing is searched until the citizen confirms; low confidence is flagged, never auto-accepted |
 | Strip/box scan | read the pack | same review step; identification only, the Rx gate still applies |
 | Result summary | rephrase the engine's own numbers | the template is the primary path; a live answer that drops the savings figure or contains dose-shaped text is discarded |
-| OTC information | translate and simplify retrieved label text | bullets must map to a source; dose-shaped output is stripped; Hindi/English/Marathi are pre-generated and marked reviewed |
+| OTC information | translate and simplify retrieved label text | bullets must map to a source; dose-shaped output is stripped; Hindi/English/Awadhi are pre-generated and marked reviewed |
 | Scheme assistant | answer from 17 curated entries | must cite scheme ids; ids outside the shortlist are dropped; cards show the official source link |
 | Voice in | — | browser Web Speech API on-device; Groq Whisper only as a fallback endpoint |
 | Voice out | — | browser `speechSynthesis` |
@@ -140,7 +140,7 @@ The engine is deliberately I/O-free so the port is mechanical.
 - **Voice guidance**: one spoken prompt per screen; results read in a fixed order — medicine,
   cheaper option, saving, nearest shop.
 - 48px touch targets, visible focus rings, screen-reader labels on every icon button,
-  `prefers-reduced-motion` respected, dark mode, three languages.
+  `prefers-reduced-motion` respected, dark mode, three languages (Hindi, English, Awadhi).
 - **Offline**: the service worker caches the app shell and the last results; the last ten full
   result payloads and "My medicines" live in IndexedDB. An offline result is labelled with the date
   it was saved, and Reserve is withheld because stock may have changed.

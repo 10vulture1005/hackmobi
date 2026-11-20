@@ -25,7 +25,7 @@ const devanagari = Noto_Sans_Devanagari({
 export const metadata: Metadata = {
   title: 'Sasta Dawa — same medicine, lower price, near you',
   description:
-    'Find the same salt cheaper, see which pharmacy nearby has it, and check the government schemes you can use. Hindi, English and Marathi.',
+    'Find the same salt cheaper, see which pharmacy nearby has it, and check the government schemes you can use. Hindi, English and Awadhi.',
   manifest: '/manifest.webmanifest',
   appleWebApp: { capable: true, title: 'Sasta Dawa', statusBarStyle: 'default' },
   icons: { icon: '/icons/icon.svg', apple: '/icons/icon-192.png' },

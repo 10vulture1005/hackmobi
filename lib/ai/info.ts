@@ -2,7 +2,7 @@
  * "Before you buy" — grounded OTC medicine information.
  *
  * Grounding is absolute: the only text that may reach the user is what we
- * retrieved into drug_info for that salt. Reviewed Hindi/English/Marathi
+ * retrieved into drug_info for that salt. Reviewed Hindi/English/Awadhi
  * summaries are pre-generated, so the sheet opens instantly and the demo spends
  * no quota. Anything generated live is validated for dosage-like content and
  * for having a source before it is shown.

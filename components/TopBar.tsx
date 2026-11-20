@@ -8,7 +8,7 @@ import { useApp } from './AppProvider'
 import { Sheet } from './ui'
 import { LANGUAGE_LABELS, type Language } from '@/lib/i18n'
 
-const LANGS: Language[] = ['hi', 'en', 'mr']
+const LANGS: Language[] = ['hi', 'en', 'awa']
 
 export function TopBar() {
   const { language, setLanguage, d, largeText, setLargeText, voiceGuided, setVoiceGuided, theme, setTheme } = useApp()

@@ -7,9 +7,9 @@
  * features go through Gemini, with Groq as a text-only fallback.
  */
 
-export type Language = 'en' | 'hi' | 'mr'
+export type Language = 'en' | 'hi' | 'awa'
 
-export const LANGUAGES: Language[] = ['en', 'hi', 'mr']
+export const LANGUAGES: Language[] = ['en', 'hi', 'awa']
 
 export function isLanguage(v: unknown): v is Language {
   return typeof v === 'string' && (LANGUAGES as string[]).includes(v)
@@ -107,7 +107,7 @@ const DOSE_PATTERNS: RegExp[] = [
   /\b\d\s*-\s*\d\s*-\s*\d\b/,
   /\b(tablet|capsule|spoon|tsp|drops?)\s*(s)?\s*(daily|per day|a day)/i,
   /\b(दिन में|रोज़ाना|गोली लें|खुराक)\b/,
-  /\b(दररोज|दिवसातून|गोळी घ्या|मात्रा)\b/,
+  /\b(रोज|दिन मा|गोली लीं|खुराक)\b/,
 ]
 
 export function containsDosageAdvice(text: string): boolean {

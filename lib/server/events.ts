@@ -75,7 +75,7 @@ export function seedDemoEvents() {
     [26.85, 80.95], [26.86, 81.0], [26.89, 80.98], [26.89, 80.94], [26.8, 80.89],
     [26.86, 80.91], [26.84, 80.88], [26.91, 80.93], [26.78, 80.94], [26.9, 81.03],
   ]
-  const languages = ['hi', 'hi', 'hi', 'en', 'mr']
+  const languages = ['hi', 'hi', 'hi', 'en', 'awa']
 
   // Deterministic: the same numbers every time the process starts.
   let seed = 7

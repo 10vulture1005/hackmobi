@@ -106,7 +106,7 @@ These are OTC, so an **"ℹ️ ख़रीदने से पहले"** butt
   each with a **Listen 🔊**.
 - At the bottom: the source links (openFDA, MedlinePlus) and *"हम खुराक … कभी नहीं बताते"* — we never
   show a dose.
-- Switch language in the top bar: Hindi, English and Marathi are all pre-reviewed and cached, so the
+- Switch language in the top bar: Hindi, English and Awadhi are all pre-reviewed and cached, so the
   sheet opens instantly and offline.
 - Now tap the same button on a prescription medicine — there isn't one. `/api/medicines/{id}/info`
   returns **403** for anything that is not `OTC`.

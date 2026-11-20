@@ -31,7 +31,7 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
     )
   }
 
-  const result = await drugInfo(saltInfoKey(product.salts), language as 'en' | 'hi' | 'mr', {
+  const result = await drugInfo(saltInfoKey(product.salts), language as 'en' | 'hi' | 'awa', {
     schedule: product.schedule,
   })
 

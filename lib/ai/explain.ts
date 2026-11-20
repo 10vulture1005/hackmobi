@@ -75,22 +75,22 @@ function template(f: Facts, language: Language): string[] {
     return lines
   }
 
-  if (language === 'mr') {
+  if (language === 'awa') {
     if (f.savings > 0) {
       lines.push(
-        `तेच औषध, तेच सॉल्ट. ${f.switchCount} औषधांना स्वस्त पर्याय मिळाला — तुम्ही ${rupee(f.savings)} वाचवू शकता.`,
+        `वही दवा, वही साल्ट। ${f.switchCount} दवा${f.switchCount > 1 ? 'नी' : ''} क सस्ता विकल्प मिलल — तोहरा ${rupee(f.savings)} बचत होई।`,
       )
-      lines.push(`एकूण ${rupee(f.originalTotal)} ऐवजी ${rupee(f.bestTotal)}.`)
-      if (store) lines.push(`सर्वात जवळ: ${store}${dist ? `, ${dist} अंतरावर` : ''}.`)
+      lines.push(`कुल ${rupee(f.originalTotal)} के जगह ${rupee(f.bestTotal)}।`)
+      if (store) lines.push(`सबसे नगीचे: ${store}${dist ? `, ${dist} दूर` : ''}।`)
     } else {
-      lines.push('या चिठ्ठीसाठी जवळपास आत्ता स्वस्त पर्याय सापडला नाही.')
+      lines.push('ई परचा पर अबहीं नगीचे सस्ता विकल्प नाहीं मिलल।')
     }
     if (f.dupSalts.length) {
-      lines.push(`लक्ष द्या: दोन औषधांत एकच सॉल्ट (${f.dupSalts.join(', ')}) आहे — डॉक्टर किंवा फार्मासिस्टला विचारा.`)
+      lines.push(`ध्यान दीं: दू दवाई में एकही साल्ट (${f.dupSalts.join(', ')}) बा — डाक्टर भा फार्मासिस्ट से पूछीं।`)
     }
-    if (f.ntiCount > 0) lines.push('थायरॉइडसारखे औषध बदलण्यापूर्वी डॉक्टरांना विचारणे आवश्यक आहे.')
-    if (f.rxCount > 0) lines.push(`${f.rxCount} औषधांसाठी डॉक्टरांची चिठ्ठी आवश्यक आहे.`)
-    lines.push('औषध बदलण्यापूर्वी फार्मासिस्ट किंवा डॉक्टरकडून खात्री करा.')
+    if (f.ntiCount > 0) lines.push('थायराइड जइसन दवा बदले से पहिले डाक्टर से पूछे जरूरी बा।')
+    if (f.rxCount > 0) lines.push(`${f.rxCount} दवा बदे डाक्टर क परचा जरूरी बा।`)
+    lines.push('दवा बदले से पहिले फार्मासिस्ट भा डाक्टर से पक्का करीं।')
     return lines
   }
 

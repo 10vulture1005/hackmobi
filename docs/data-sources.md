@@ -117,7 +117,7 @@ with no source show "Information not available — ask your pharmacist" rather t
 > generated and never displayed — an output validator rejects dose-shaped text in all three
 > languages before it can reach a user.
 
-Hindi, English and Marathi summaries for the most-used salts are pre-generated and marked
+Hindi, English and Awadhi summaries for the most-used salts are pre-generated and marked
 `reviewed = true`, so the sheet opens instantly, spends no quota, and works offline.
 
 ## 7. Government schemes

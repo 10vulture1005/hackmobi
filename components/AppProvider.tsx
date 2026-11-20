@@ -81,7 +81,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         getPref<number>('radiusKm'),
       ])
       if (cancelled) return
-      if (lang) setLanguageState(lang)
+      if (lang && DICTIONARIES[lang]) setLanguageState(lang)
       if (large) setLargeTextState(large)
       if (voice) setVoiceGuidedState(voice)
       if (th) setThemeState(th)

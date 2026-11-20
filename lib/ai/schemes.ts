@@ -92,18 +92,18 @@ function missingInfo(q: SchemeQuery): string[] {
   const L = q.language
   if (!q.state) {
     out.push(
-      L === 'hi' ? 'आप किस राज्य में रहते हैं?' : L === 'mr' ? 'तुम्ही कोणत्या राज्यात राहता?' : 'Which state do you live in?',
+      L === 'hi' ? 'आप किस राज्य में रहते हैं?' : L === 'awa' ? 'अहाँ कवन राज्य में रहत बानी?' : 'Which state do you live in?',
     )
   }
   if (!q.age) {
-    out.push(L === 'hi' ? 'मरीज़ की उम्र क्या है?' : L === 'mr' ? 'रुग्णाचे वय किती आहे?' : 'How old is the patient?')
+    out.push(L === 'hi' ? 'मरीज़ की उम्र क्या है?' : L === 'awa' ? 'मरीज क उमिर कितना बा?' : 'How old is the patient?')
   }
   if (!q.ration_card && !q.income_band) {
     out.push(
       L === 'hi'
         ? 'क्या आपके पास राशन कार्ड या आय प्रमाण है?'
-        : L === 'mr'
-          ? 'तुमच्याकडे रेशन कार्ड किंवा उत्पन्न दाखला आहे का?'
+        : L === 'awa'
+          ? 'का तोहरा लगे राशन कार्ड भा आमदनी क कागज बा?'
           : 'Do you have a ration card or an income certificate?',
     )
   }
@@ -117,10 +117,10 @@ function retrievalAnswer(schemes: Scheme[], q: SchemeQuery): string {
       ? `आपकी जानकारी के आधार पर ये योजनाएँ काम आ सकती हैं: ${names}. नीचे हर कार्ड में पात्रता, ज़रूरी कागज़ और आवेदन का तरीका दिया है, साथ में सरकारी लिंक भी।`
       : 'इस सवाल से मेल खाती कोई योजना हमारी सूची में नहीं मिली। नज़दीकी जन औषधि केंद्र से सस्ती जेनेरिक दवा ज़रूर मिल सकती है।'
   }
-  if (q.language === 'mr') {
+  if (q.language === 'awa') {
     return schemes.length
-      ? `तुमच्या माहितीनुसार या योजना उपयोगी ठरू शकतात: ${names}. खालील प्रत्येक कार्डात पात्रता, कागदपत्रे आणि अर्ज कसा करायचा, तसेच सरकारी दुवा दिला आहे.`
-      : 'या प्रश्नाशी जुळणारी योजना आमच्या यादीत सापडली नाही. जवळच्या जन औषधी केंद्रात स्वस्त जेनेरिक औषध मिळू शकते.'
+      ? `तोहर जानकारी के हिसाब से ई योजना काम आ सके: ${names}. नीचे हर कार्ड में हक, जरूरी कागज अउर आवेदन क तरीका बा, सरकारी लिंक के साथ।`
+      : 'ई सवाल से मेल खाइवला कवनो योजना हमर सूची में नाहीं मिलल। नगीचे क जन औषधि केंद्र से सस्ता जेनेरिक दवा जरूर मिली।'
   }
   return schemes.length
     ? `Based on what you told us, these may apply: ${names}. Each card below lists who is eligible, the documents you need and how to apply, with the official link.`
