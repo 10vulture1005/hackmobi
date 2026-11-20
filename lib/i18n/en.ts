@@ -92,6 +92,8 @@ export const en = {
     reserve: 'Reserve',
     listen: 'Listen',
     share: 'Share on WhatsApp',
+    shareShort: 'Share',
+    mapShort: 'Map',
     findOnMap: 'Find on map',
     disclaimer: 'Confirm with your pharmacist or doctor before switching medicines.',
     noSubstitute: 'We cannot confirm an exact same-salt match for this one, so we do not suggest a swap.',

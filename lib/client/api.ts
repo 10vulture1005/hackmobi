@@ -215,6 +215,8 @@ export interface ParsePrescriptionResponse {
 }
 
 export interface AdminStats {
+  /** True when the aggregates include seeded demo activity, not just this session. */
+  includes_demo_activity: boolean
   searches: number
   savings_generated: number
   reservations: number

@@ -59,7 +59,7 @@ export function TopBar() {
         </div>
       </header>
 
-      <Sheet open={open} onClose={() => setOpen(false)} title={d.a11y.title}>
+      <Sheet closeLabel={d.common.close} open={open} onClose={() => setOpen(false)} title={d.a11y.title}>
         <ul className="space-y-2.5">
           <ToggleRow
             icon={<Accessibility size={20} aria-hidden />}

@@ -55,6 +55,7 @@ export function TrustExplainer({
 
   return (
     <Sheet
+      closeLabel={d.common.close}
       open={visible}
       onClose={close}
       title={d.trust.title}

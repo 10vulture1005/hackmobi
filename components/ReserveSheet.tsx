@@ -121,6 +121,7 @@ export function ReserveSheet({
 
   return (
     <Sheet
+      closeLabel={d.common.close}
       open={open}
       onClose={onClose}
       title={d.reserve.title}

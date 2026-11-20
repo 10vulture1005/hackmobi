@@ -219,6 +219,14 @@ body {
   animation: aush-rise 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* No JS, no animation support, or animation disabled: content stays visible. */
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 /* Leaflet needs its container sized, and its own CSS is inlined in MapView. */
 .leaflet-container {
   font: inherit;

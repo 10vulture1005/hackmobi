@@ -463,62 +463,74 @@ export function updateReservation(
   return r
 }
 
-/** Demo helper so the pitch can show a non-empty pharmacist queue. */
-export function seedDemoReservations() {
-  if (reservations.size > 0) return
+/**
+ * Demo helper: a pharmacist opening a dashboard with an empty queue has nothing
+ * to show, so the first time a given pharmacy is opened we seed two waiting
+ * requests for it — one over-the-counter, one prescription-only and unverified,
+ * which is the pair that demonstrates the counter rule.
+ */
+export function seedDemoReservations(pharmacyId: string) {
+  const existing = [...reservations.values()].some((r) => r.pharmacy_id === pharmacyId)
+  if (existing) return
   const d = db()
-  const kendra = d.pharmacies.find((p) => p.is_jan_aushadhi)
-  const shop = d.pharmacies.find((p) => !p.is_jan_aushadhi)
-  const para = d.products.find((p) => p.brand_name.startsWith('Paracetamol 500'))
-  const metformin = d.products.find((p) => p.brand_name.startsWith('Metformin 500mg Tablet'))
-  if (!kendra || !shop || !para || !metformin) return
+  const pharmacy = d.pharmacyById.get(pharmacyId)
+  if (!pharmacy) return
+
+  const stocked = new Set(
+    (d.inventoryByPharmacy.get(pharmacyId) ?? []).filter((r) => r.in_stock).map((r) => r.product_id),
+  )
+  const pick = (predicate: (p: (typeof d.products)[number]) => boolean) =>
+    d.products.find((p) => stocked.has(p.id) && predicate(p)) ?? d.products.find(predicate)
+
+  const otc = pick((p) => !p.is_rx && p.dosage_form === 'tablet')
+  const rx = pick((p) => p.schedule === 'H' && p.salts.some((s) => s.salt === 'metformin'))
+  if (!otc || !rx) return
 
   const now = Date.now()
-  const rows: ReservationRecord[] = [
-    {
-      id: 'res_demo_1',
-      code: 'SD-DEMO1',
-      pharmacy_id: kendra.id,
-      pharmacy_name: kendra.name,
-      items: [
-        { product_id: para.id, brand_name: para.brand_name, qty: 10, price_per_unit: para.price_per_unit, requires_rx: false, counter_verification: false },
-      ],
-      status: 'pending',
-      customer_name: 'Sunita Devi',
-      customer_phone: '+91 98XXXXXX21',
-      created_at: new Date(now - 11 * 60_000).toISOString(),
-      expires_at: new Date(now + 109 * 60_000).toISOString(),
-      prescription_id: null,
-      requires_rx: false,
-      rx_verified_by_pharmacist: false,
-      rx_verified_at: null,
-      rejection_reason: null,
-      fulfilment_type: 'pickup',
-      estimated_savings: 21.5,
-    },
-    {
-      id: 'res_demo_2',
-      code: 'SD-DEMO2',
-      pharmacy_id: kendra.id,
-      pharmacy_name: kendra.name,
-      items: [
-        { product_id: metformin.id, brand_name: metformin.brand_name, qty: 30, price_per_unit: metformin.price_per_unit, requires_rx: true, counter_verification: false },
-      ],
-      status: 'pending',
-      customer_name: 'Ramesh Yadav',
-      customer_phone: '+91 97XXXXXX04',
-      created_at: new Date(now - 4 * 60_000).toISOString(),
-      expires_at: new Date(now + 116 * 60_000).toISOString(),
-      prescription_id: 'rx_demo_chronic',
-      requires_rx: true,
-      rx_verified_by_pharmacist: false,
-      rx_verified_at: null,
-      rejection_reason: null,
-      fulfilment_type: 'pickup',
-      estimated_savings: 126,
-    },
-  ]
-  for (const r of rows) reservations.set(r.code, r)
+  const make = (
+    suffix: string,
+    product: typeof otc,
+    qty: number,
+    customer: string,
+    phone: string,
+    minutesAgo: number,
+    savings: number,
+    prescriptionId: string | null,
+  ): ReservationRecord => ({
+    id: `res_demo_${pharmacyId}_${suffix}`,
+    code: `SD-${pharmacyId.toUpperCase().slice(-3)}${suffix}`,
+    pharmacy_id: pharmacyId,
+    pharmacy_name: pharmacy.name,
+    items: [
+      {
+        product_id: product.id,
+        brand_name: product.brand_name,
+        qty,
+        price_per_unit: product.price_per_unit,
+        requires_rx: product.is_rx,
+        counter_verification: requiresCounterVerification(product.schedule),
+      },
+    ],
+    status: 'pending',
+    customer_name: customer,
+    customer_phone: phone,
+    created_at: new Date(now - minutesAgo * 60_000).toISOString(),
+    expires_at: new Date(now + (120 - minutesAgo) * 60_000).toISOString(),
+    prescription_id: prescriptionId,
+    requires_rx: product.is_rx,
+    rx_verified_by_pharmacist: false,
+    rx_verified_at: null,
+    rejection_reason: null,
+    fulfilment_type: 'pickup',
+    estimated_savings: savings,
+  })
+
+  for (const r of [
+    make('1', otc, 10, 'Sunita Devi', '+91 98XXXXXX21', 11, 21.5, null),
+    make('2', rx, 60, 'Ramesh Yadav', '+91 97XXXXXX04', 4, 106.2, 'rx_demo_chronic'),
+  ]) {
+    reservations.set(r.code, r)
+  }
 }
 
 /** Registers the checked-in demo prescriptions so they can be validated. */

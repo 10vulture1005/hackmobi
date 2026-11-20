@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   Scatter,
   ScatterChart,
+  ZAxis,
   Tooltip,
   XAxis,
   YAxis,
@@ -51,6 +52,11 @@ export default function ImpactPage() {
           Live aggregates from this session. Anonymous by design — no names, no phone numbers, no prescription
           text, and coordinates rounded to roughly a kilometre.
         </p>
+        {stats.includes_demo_activity && (
+          <p className="mt-2">
+            <Badge tone="savings">Includes seeded demo activity · real searches land alongside it</Badge>
+          </p>
+        )}
       </header>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -110,6 +116,7 @@ export default function ImpactPage() {
                     dataKey="lng"
                     type="number"
                     domain={['dataMin - 0.02', 'dataMax + 0.02']}
+                    tickFormatter={(v: number) => v.toFixed(2)}
                     tick={{ fontSize: 10 }}
                     stroke="var(--color-muted)"
                   />
@@ -117,9 +124,11 @@ export default function ImpactPage() {
                     dataKey="lat"
                     type="number"
                     domain={['dataMin - 0.02', 'dataMax + 0.02']}
+                    tickFormatter={(v: number) => v.toFixed(2)}
                     tick={{ fontSize: 10 }}
                     stroke="var(--color-muted)"
                   />
+                  <ZAxis dataKey="savings" type="number" range={[40, 320]} name="saving" />
                   <Tooltip
                     contentStyle={{
                       background: 'var(--color-surface)',

@@ -34,6 +34,7 @@ export function MicButton({
       <button
         onClick={listening ? stop : start}
         aria-pressed={listening}
+        aria-disabled={!supported}
         aria-label={listening ? d.home.stop : label}
         className={clsx(
           'tap grid size-[60px] place-items-center rounded-full border-2 transition',
@@ -45,8 +46,14 @@ export function MicButton({
         {listening ? <Square size={22} aria-hidden /> : <Mic size={24} aria-hidden />}
       </button>
       <span className="text-xs font-semibold">{listening ? d.home.stop : label}</span>
-      {!supported && <span className="text-[0.6875rem] text-muted">{d.home.voiceUnsupported}</span>}
-      {error === 'not-allowed' && <span className="text-[0.6875rem] text-danger">{d.map.locationDenied}</span>}
+      {/* Only after a tap — an unsupported notice on first paint just makes the
+          button look broken, and the keyboard is right next to it anyway. */}
+      {error === 'unsupported' && (
+        <span className="text-[0.6875rem] leading-tight text-muted">{d.home.voiceUnsupported}</span>
+      )}
+      {error === 'not-allowed' && (
+        <span className="text-[0.6875rem] leading-tight text-danger">{d.map.locationDenied}</span>
+      )}
     </div>
   )
 }

@@ -7,7 +7,7 @@ import { Loader2, MapPin, Navigation, Store } from 'lucide-react'
 import clsx from 'clsx'
 import { AREAS, useApp } from '@/components/AppProvider'
 import { Badge, Button, Card, Skeleton } from '@/components/ui'
-import { api, type NearbyPharmacy, type Product } from '@/lib/client/api'
+import { api, type NearbyPharmacy } from '@/lib/client/api'
 import { km, rupee } from '@/lib/client/format'
 
 const MapView = dynamic(() => import('@/components/MapView'), {
@@ -29,7 +29,7 @@ function MapScreen() {
   const { d, t, place, setPlace, requestLocation, locating, locationError, radiusKm, setRadiusKm } = useApp()
 
   const [rows, setRows] = useState<NearbyPharmacy[] | null>(null)
-  const [product, setProduct] = useState<Product | null>(null)
+  const [product, setProduct] = useState<{ id: string; brand_name: string } | null>(null)
   const [selected, setSelected] = useState<string | null>(null)
   const [kendraOnly, setKendraOnly] = useState(false)
 
@@ -56,23 +56,15 @@ function MapScreen() {
     }
   }, [place.lat, place.lng, radiusKm, productId, kendraOnly])
 
+  // The product's name comes back on the inventory rows, so the header needs
+  // no second lookup.
   useEffect(() => {
-    if (!productId) return
-    api
-      .search(productId)
-      .then(() => undefined)
-      .catch(() => undefined)
-  }, [productId])
-
-  useEffect(() => {
-    if (!rows || !productId) return
-    const first = rows.find((r) => r.product)
-    if (first?.product) {
-      setProduct({
-        id: first.product.product_id,
-        brand_name: first.product.brand_name,
-      } as Product)
+    if (!rows || !productId) {
+      setProduct(null)
+      return
     }
+    const first = rows.find((r) => r.product)
+    setProduct(first?.product ? { id: first.product.product_id, brand_name: first.product.brand_name } : null)
   }, [rows, productId])
 
   const selectedRow = useMemo(() => rows?.find((r) => r.id === selected) ?? null, [rows, selected])

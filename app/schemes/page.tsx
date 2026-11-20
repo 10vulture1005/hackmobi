@@ -177,7 +177,11 @@ function SchemeCard({ scheme }: { scheme: Scheme }) {
         ))}
       </ul>
 
-      <button onClick={() => setOpen((v) => !v)} aria-expanded={open} className="text-sm font-bold text-primary">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="block w-fit text-left text-sm font-bold text-primary"
+      >
         {open ? d.results.hideAll : `${d.schemes.documents} · ${d.schemes.howToApply}`}
       </button>
 
@@ -196,7 +200,7 @@ function SchemeCard({ scheme }: { scheme: Scheme }) {
         href={scheme.source_url}
         target="_blank"
         rel="noreferrer noopener"
-        className="inline-flex items-center gap-1.5 text-sm font-bold text-primary underline decoration-primary/40 underline-offset-4"
+        className="flex w-fit items-center gap-1.5 text-sm font-bold text-primary underline decoration-primary/40 underline-offset-4"
       >
         {d.schemes.source}
         <ExternalLink size={14} aria-hidden />

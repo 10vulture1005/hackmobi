@@ -283,7 +283,14 @@ export default function HomePage() {
           <p className="text-xs text-muted">Lucknow, Uttar Pradesh</p>
         </div>
         <div className="flex shrink-0 gap-1.5">
-          <Button variant="ghost" size="sm" onClick={requestLocation} disabled={locating}>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={requestLocation}
+            disabled={locating}
+            aria-label={locating ? d.map.locating : d.map.useLocation}
+            title={d.map.useLocation}
+          >
             {locating ? <Loader2 size={15} className="animate-spin" aria-hidden /> : <MapPin size={15} aria-hidden />}
           </Button>
           <Button variant="secondary" size="sm" onClick={() => setAreaOpen(true)}>
@@ -312,11 +319,11 @@ export default function HomePage() {
         {d.home.trust} <span className="font-bold">{d.app.demoBadge}.</span>
       </p>
 
-      <Sheet open={demoOpen} onClose={() => setDemoOpen(false)} title={d.home.demoPick}>
+      <Sheet closeLabel={d.common.close} open={demoOpen} onClose={() => setDemoOpen(false)} title={d.home.demoPick}>
         <DemoList onPick={openDemo} />
       </Sheet>
 
-      <Sheet open={areaOpen} onClose={() => setAreaOpen(false)} title={d.map.pickArea}>
+      <Sheet closeLabel={d.common.close} open={areaOpen} onClose={() => setAreaOpen(false)} title={d.map.pickArea}>
         <ul className="grid grid-cols-2 gap-2">
           {AREAS.map((a) => (
             <li key={a.label}>

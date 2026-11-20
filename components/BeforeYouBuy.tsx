@@ -57,6 +57,7 @@ export function BeforeYouBuy({
 
   return (
     <Sheet
+      closeLabel={d.common.close}
       open={open}
       onClose={onClose}
       title={`${d.info.title}${data ? ` — ${data.brand_name}` : ''}`}

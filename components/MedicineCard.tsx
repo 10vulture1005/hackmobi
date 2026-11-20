@@ -44,7 +44,7 @@ export function MedicineCard({
   onMap: (productId: string) => void
   saved: boolean
 }) {
-  const { d, t } = useApp()
+  const { d, t, radiusKm } = useApp()
   const [openAll, setOpenAll] = useState(false)
 
   const original = item.original
@@ -151,7 +151,7 @@ export function MedicineCard({
           <WarnRow
             tone="neutral"
             icon={<Store size={15} aria-hidden />}
-            text={t(d.results.noStockNearby, { radius: 5 })}
+            text={t(d.results.noStockNearby, { radius: radiusKm })}
           />
         )}
       </ul>
@@ -193,7 +193,7 @@ export function MedicineCard({
         </div>
       ) : (
         <p className="rounded-2xl bg-surface-2 px-3 py-2.5 text-sm text-muted">
-          {t(d.results.noStockNearby, { radius: 5 })}
+          {t(d.results.noStockNearby, { radius: radiusKm })}
         </p>
       )}
 

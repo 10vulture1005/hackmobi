@@ -10,7 +10,7 @@ import {
 } from '@/lib/engine/alternatives'
 import { search } from '@/lib/engine/match'
 import { distanceKm, freshnessOf, ageLabelHours, freshnessPenaltyKm } from '@/lib/engine/freshness'
-import type { Pharmacy, Product } from '@/lib/engine/types'
+import type { Product } from '@/lib/engine/types'
 
 export function deps(): EngineDeps {
   const d = db()

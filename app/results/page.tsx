@@ -364,7 +364,7 @@ function Results() {
             }}
           >
             <Share2 size={17} aria-hidden />
-            {d.results.share}
+            {d.results.shareShort}
           </Button>
           <Button
             variant="ghost"
@@ -373,7 +373,7 @@ function Results() {
             onClick={() => router.push(`/map?product_id=${basket.items[0].best.product_id}`)}
           >
             <MapPin size={17} aria-hidden />
-            {d.results.findOnMap}
+            {d.results.mapShort}
           </Button>
         </div>
       </div>

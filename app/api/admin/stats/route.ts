@@ -1,5 +1,5 @@
 import { db } from '@/lib/data/db'
-import { allEvents } from '@/lib/server/events'
+import { allEvents, includesDemoActivity, seedDemoEvents } from '@/lib/server/events'
 import { listReservations } from '@/lib/server/store'
 import { distanceKm } from '@/lib/engine/freshness'
 import { ok } from '@/lib/server/http'
@@ -9,13 +9,15 @@ export const dynamic = 'force-dynamic'
 /** Aggregates for /impact. Anonymous: nothing here identifies a person. */
 export async function GET() {
   const d = db()
+  seedDemoEvents()
   const events = allEvents()
   const reservations = listReservations()
 
-  const byQuery = new Map<string, { count: number; savings: number }>()
+  // Group case-insensitively, but display the spelling people actually typed.
+  const byQuery = new Map<string, { label: string; count: number; savings: number }>()
   for (const e of events) {
     const k = e.query.toLowerCase()
-    const cur = byQuery.get(k) ?? { count: 0, savings: 0 }
+    const cur = byQuery.get(k) ?? { label: e.query, count: 0, savings: 0 }
     cur.count += 1
     cur.savings += e.savings_amount
     byQuery.set(k, cur)
@@ -48,6 +50,7 @@ export async function GET() {
   })()
 
   return ok({
+    includes_demo_activity: includesDemoActivity(),
     searches: events.length,
     savings_generated: Math.round(events.reduce((s, e) => s + e.savings_amount, 0) * 100) / 100,
     reservations: reservations.length,
@@ -58,7 +61,7 @@ export async function GET() {
     top_searches: [...byQuery.entries()]
       .sort((a, b) => b[1].count - a[1].count)
       .slice(0, 10)
-      .map(([query, v]) => ({ query, count: v.count, savings: Math.round(v.savings * 100) / 100 })),
+      .map(([, v]) => ({ query: v.label, count: v.count, savings: Math.round(v.savings * 100) / 100 })),
     search_heat: events
       .filter((e) => e.lat_bucket !== null)
       .map((e) => ({ lat: e.lat_bucket, lng: e.lng_bucket, savings: e.savings_amount })),

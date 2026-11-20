@@ -69,6 +69,12 @@ export function Badge({
 
 /* ------------------------------------------------------------------- card */
 
+/**
+ * Card entrance is a CSS animation, not a JS one, on purpose: a motion
+ * component renders at opacity 0 until hydration, and on a cheap phone over a
+ * slow connection that is a blank screen. CSS animates with no JS at all, and
+ * `prefers-reduced-motion` already disables it globally.
+ */
 export function Card({
   className,
   children,
@@ -79,14 +85,12 @@ export function Card({
   delay?: number
 }) {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.22, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={clsx('card p-4', className)}
+    <section
+      className={clsx('card rise p-4', className)}
+      style={delay ? { animationDelay: `${Math.round(delay * 1000)}ms` } : undefined}
     >
       {children}
-    </motion.section>
+    </section>
   )
 }
 
@@ -98,12 +102,14 @@ export function Sheet({
   title,
   children,
   footer,
+  closeLabel = 'Close',
 }: {
   open: boolean
   onClose: () => void
   title: string
   children: React.ReactNode
   footer?: React.ReactNode
+  closeLabel?: string
 }) {
   const panelRef = useRef<HTMLDivElement>(null)
 
@@ -151,7 +157,7 @@ export function Sheet({
               <button
                 onClick={onClose}
                 className="tap -mr-2 grid place-items-center rounded-full text-muted hover:bg-surface-2"
-                aria-label="Close"
+                aria-label={closeLabel}
               >
                 <X size={20} aria-hidden />
               </button>

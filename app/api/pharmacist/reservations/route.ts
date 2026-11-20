@@ -10,7 +10,7 @@ export async function GET(req: Request) {
   if (!db().pharmacyById.get(pharmacyId)) return fail(404, 'unknown_pharmacy', 'No such pharmacy.')
 
   ensureDemoPrescriptions()
-  seedDemoReservations()
+  seedDemoReservations(pharmacyId)
 
   const rows = listReservations(pharmacyId).map((r) => {
     const rx = r.prescription_id ? getPrescription(r.prescription_id) : undefined
