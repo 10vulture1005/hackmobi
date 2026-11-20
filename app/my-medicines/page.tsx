@@ -93,10 +93,10 @@ export default function MyMedicinesPage() {
       <Card className="space-y-3">
         <div className="grid grid-cols-3 gap-2 text-center">
           <Stat label={d.mine.monthlyNow} value={rupee(totals.now)} />
-          <Stat label={d.mine.monthlyGeneric} value={rupee(totals.generic)} tone="text-success" />
-          <Stat label={d.mine.monthlySaving} value={rupee(totals.saving)} tone="text-savings" />
+          <Stat label={d.mine.monthlyGeneric} value={rupee(totals.generic)} tone="text-success-ink" />
+          <Stat label={d.mine.monthlySaving} value={rupee(totals.saving)} tone="text-savings-ink" />
         </div>
-        <p className="flex items-center justify-center gap-2 rounded-2xl bg-savings px-3 py-2.5 text-center text-sm font-extrabold text-[#3b2600]">
+        <p className="flex items-center justify-center gap-2 rounded-2xl bg-savings px-3 py-2.5 text-center text-sm font-extrabold text-on-savings">
           <TrendingDown size={17} aria-hidden />
           <CountUp value={totals.saving * 12} format={(n) => rupee(Math.round(n))} /> {d.mine.yearly}
         </p>
@@ -142,7 +142,7 @@ export default function MyMedicinesPage() {
                       min={0}
                       value={m.units_per_month || ''}
                       onChange={(e) => void setUnits(m, Number(e.target.value))}
-                      className="tabular w-24 rounded-xl border border-line bg-surface px-3 py-2 text-right outline-none focus:border-primary"
+                      className="tabular w-24 rounded-xl border border-field-line bg-surface px-3 py-2 text-right outline-none focus:border-primary"
                     />
                   </label>
                   <div className="flex-1 text-right text-sm">
@@ -154,7 +154,7 @@ export default function MyMedicinesPage() {
                     </p>
                     <p>
                       <span className="text-muted">{m.generic_name}: </span>
-                      <span className="tabular font-extrabold text-success">
+                      <span className="tabular font-extrabold text-success-ink">
                         {rupee(m.generic_price_per_unit * m.units_per_month)}
                       </span>
                     </p>

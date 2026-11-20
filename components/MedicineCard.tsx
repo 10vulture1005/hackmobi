@@ -82,14 +82,14 @@ export function MedicineCard({
       {switched && (
         <div className="rounded-2xl border border-success/40 bg-success-tint/50 p-3">
           <div className="flex items-start gap-2">
-            <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-success text-white">
+            <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-success text-on-success">
               <ArrowDown size={16} aria-hidden />
             </span>
             <div className="min-w-0 flex-1">
               <p className="flex flex-wrap items-center gap-1.5">
                 <button
                   onClick={onTrust}
-                  className="pill border-transparent bg-success text-white"
+                  className="pill border-transparent bg-success text-on-success"
                   aria-label={`${d.results.sameSalt} — ${d.trust.title}`}
                 >
                   {d.results.sameSalt} ✓
@@ -105,12 +105,12 @@ export function MedicineCard({
               </p>
             </div>
             <div className="shrink-0 text-right">
-              <p className="tabular text-lg font-extrabold text-success">{paise(best.price_per_unit)}</p>
+              <p className="tabular text-lg font-extrabold text-success-ink">{paise(best.price_per_unit)}</p>
               <p className="text-[0.6875rem] text-muted">{t(d.results.perUnit, { unit: best.unit_label })}</p>
             </div>
           </div>
 
-          <p className="mt-2.5 flex items-center justify-between gap-2 rounded-xl bg-savings px-3 py-2 text-sm font-extrabold text-[#3b2600]">
+          <p className="mt-2.5 flex items-center justify-between gap-2 rounded-xl bg-savings px-3 py-2 text-sm font-extrabold text-on-savings">
             <span>{t(d.results.save, { amount: rupee(best.savings_total) })}</span>
             <span className="tabular">{t(d.results.savingsPct, { pct: best.savings_pct })}</span>
           </p>
@@ -164,7 +164,7 @@ export function MedicineCard({
             <span
               className={clsx(
                 'mt-0.5 grid size-8 shrink-0 place-items-center rounded-xl',
-                offer.is_jan_aushadhi ? 'bg-savings-tint text-[#92400e]' : 'bg-primary-tint text-primary-dark',
+                offer.is_jan_aushadhi ? 'bg-savings-tint text-savings-ink' : 'bg-primary-tint text-primary-ink',
               )}
             >
               <Store size={16} aria-hidden />
@@ -288,8 +288,8 @@ function WarnRow({
     <li
       className={clsx(
         'flex items-start gap-2 rounded-xl px-3 py-2 text-[0.8125rem] font-semibold leading-snug',
-        tone === 'danger' && 'bg-danger-tint text-danger',
-        tone === 'savings' && 'bg-savings-tint text-[#92400e]',
+        tone === 'danger' && 'bg-danger-tint text-danger-ink',
+        tone === 'savings' && 'bg-savings-tint text-savings-ink',
         tone === 'neutral' && 'bg-surface-2 text-muted',
       )}
     >

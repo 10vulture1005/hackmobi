@@ -60,14 +60,14 @@ export default function ImpactPage() {
       </header>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <Kpi icon={<IndianRupee size={18} aria-hidden />} label="Savings surfaced" value={rupee(stats.savings_generated)} tone="text-savings" />
+        <Kpi icon={<IndianRupee size={18} aria-hidden />} label="Savings surfaced" value={rupee(stats.savings_generated)} tone="text-savings-ink" />
         <Kpi icon={<Activity size={18} aria-hidden />} label="Searches" value={String(stats.searches)} />
         <Kpi icon={<Package size={18} aria-hidden />} label="Reservations" value={String(stats.reservations)} />
         <Kpi
           icon={<Store size={18} aria-hidden />}
           label="Jan Aushadhi coverage"
           value={`${stats.catalogue.jan_aushadhi_coverage_pct}%`}
-          tone="text-success"
+          tone="text-success-ink"
         />
       </div>
 
@@ -93,7 +93,7 @@ export default function ImpactPage() {
                   />
                   <Bar dataKey="count" radius={[0, 6, 6, 0]}>
                     {topSearches.map((_, i) => (
-                      <Cell key={i} fill={i === 0 ? 'var(--color-savings)' : 'var(--color-primary)'} />
+                      <Cell key={i} fill={i === 0 ? 'var(--color-savings-ink)' : 'var(--color-primary)'} />
                     ))}
                   </Bar>
                 </BarChart>
@@ -137,7 +137,7 @@ export default function ImpactPage() {
                       fontSize: 12,
                     }}
                   />
-                  <Scatter data={stats.search_heat} fill="var(--color-primary)" opacity={0.65} />
+                  <Scatter data={stats.search_heat} fill="var(--color-primary)" opacity={0.8} />
                 </ScatterChart>
               </ResponsiveContainer>
             </div>

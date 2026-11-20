@@ -128,7 +128,7 @@ export function ReserveSheet({
       footer={
         <div className="space-y-2">
           {error && (
-            <p className="flex items-start gap-2 rounded-xl bg-danger-tint px-3 py-2 text-sm font-semibold text-danger">
+            <p className="flex items-start gap-2 rounded-xl bg-danger-tint px-3 py-2 text-sm font-semibold text-danger-ink">
               <AlertCircle size={16} className="mt-0.5 shrink-0" aria-hidden />
               {error}
             </p>
@@ -143,7 +143,7 @@ export function ReserveSheet({
     >
       <div className="space-y-4">
         {pharmacy && (
-          <p className="rounded-2xl bg-primary-tint/60 px-3.5 py-2.5 text-sm font-semibold text-primary-dark">
+          <p className="rounded-2xl bg-primary-tint/60 px-3.5 py-2.5 text-sm font-semibold text-primary-ink">
             {pharmacy.name} · {d.reserve.holdNote}
           </p>
         )}
@@ -154,7 +154,7 @@ export function ReserveSheet({
 
         {rx.length > 0 && (
           <section className="space-y-2.5 rounded-2xl border border-danger/35 bg-danger-tint/40 p-3">
-            <h3 className="flex items-center gap-2 text-sm font-bold text-danger">
+            <h3 className="flex items-center gap-2 text-sm font-bold text-danger-ink">
               <Lock size={16} aria-hidden />
               {t(d.reserve.rxNeeded, { n: rx.length })}
             </h3>
@@ -179,10 +179,10 @@ export function ReserveSheet({
                 <p
                   className={`flex items-start gap-2 rounded-xl px-3 py-2 text-sm font-bold ${
                     rxStatus === 'verified'
-                      ? 'bg-success-tint text-success'
+                      ? 'bg-success-tint text-success-ink'
                       : rxStatus === 'needs_pharmacist_review'
-                        ? 'bg-savings-tint text-[#92400e]'
-                        : 'bg-danger-tint text-danger'
+                        ? 'bg-savings-tint text-savings-ink'
+                        : 'bg-danger-tint text-danger-ink'
                   }`}
                 >
                   {rxStatus === 'verified' ? (
@@ -222,7 +222,7 @@ export function ReserveSheet({
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={d.reserve.namePlaceholder}
-              className="tap w-full rounded-2xl border border-line bg-surface px-3.5 py-2.5 text-base outline-none focus:border-primary"
+              className="tap w-full rounded-2xl border border-field-line bg-surface px-3.5 py-2.5 text-base outline-none focus:border-primary"
             />
           </label>
           <label className="block">
@@ -232,7 +232,7 @@ export function ReserveSheet({
               onChange={(e) => setPhone(e.target.value)}
               inputMode="tel"
               placeholder={d.reserve.phonePlaceholder}
-              className="tap w-full rounded-2xl border border-line bg-surface px-3.5 py-2.5 text-base outline-none focus:border-primary"
+              className="tap w-full rounded-2xl border border-field-line bg-surface px-3.5 py-2.5 text-base outline-none focus:border-primary"
             />
           </label>
         </div>

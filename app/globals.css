@@ -1,23 +1,53 @@
 @import 'tailwindcss';
 
 /* ---------------------------------------------------------------- tokens */
+/*
+ * Every colour role is a PAIR: a fill and the foreground that is legible on it.
+ *   <role>        the fill / icon colour
+ *   on-<role>     text and icons drawn ON that fill
+ *   <role>-tint   the quiet surface version
+ *   <role>-ink    text drawn ON that tint
+ * Picking a foreground by hand (text-white, a raw hex) is what breaks a theme:
+ * the fill flips per theme and the hand-picked text does not. Always use the
+ * paired token.
+ */
 @theme {
   --color-primary: #0f766e;
-  --color-primary-dark: #115e59;
+  --color-primary-dark: #115e59; /* hover fill only */
+  --color-on-primary: #ffffff;
   --color-primary-tint: #ccfbf1;
-  --color-savings: #f59e0b;
-  --color-savings-tint: #fef3c7;
-  --color-success: #16a34a;
-  --color-success-tint: #dcfce7;
-  --color-danger: #dc2626;
-  --color-danger-tint: #fee2e2;
+  --color-primary-ink: #115e59;
 
-  --color-bg: #f7faf9;
+  --color-savings: #f59e0b; /* fills and icons; never text on white */
+  --color-on-savings: #3b2600;
+  /* The savings banner is amber in BOTH themes, so what is drawn on it is
+     fixed rather than themed: a deeper amber to close the gradient, and a
+     forest green that holds 3.66:1 against the translucent track. */
+  --color-savings-deep: #ea8c05;
+  --color-savings-meter: #0b3b1d;
+  --color-savings-tint: #fef3c7;
+  --color-savings-ink: #a85a08; /* the amber that can carry text */
+
+  --color-success: #16a34a;
+  --color-on-success: #04280f;
+  --color-success-tint: #dcfce7;
+  --color-success-ink: #166534;
+
+  --color-danger: #dc2626;
+  --color-on-danger: #ffffff;
+  --color-danger-tint: #fee2e2;
+  --color-danger-ink: #a91b1b;
+
+  --color-bg: #f2f7f6;
   --color-surface: #ffffff;
-  --color-surface-2: #f1f6f5;
+  --color-surface-2: #e9f1ef;
   --color-ink: #0b1f1d;
-  --color-muted: #5b6b69;
-  --color-line: #dce7e5;
+  --color-muted: #4e5f5d;
+
+  --color-scrim: #031412; /* dimming behind a sheet — dark in both themes */
+  --color-line: #d4e2df; /* decorative hairlines between surfaces */
+  --color-field-line: #76918c; /* control boundaries — WCAG 1.4.11, >= 3:1 */
+  --color-focus: #0f766e;
 
   --radius-card: 16px;
   --radius-sheet: 24px;
@@ -29,43 +59,114 @@
   --shadow-lift: 0 2px 6px rgb(11 31 29 / 0.06), 0 18px 40px -16px rgb(11 31 29 / 0.22);
 }
 
-/* Dark mode: same token names, different values. */
-:root[data-theme='dark'] {
-  --color-bg: #061412;
-  --color-surface: #0d1f1d;
-  --color-surface-2: #132927;
-  --color-ink: #eefaf8;
-  --color-muted: #9bb3b0;
-  --color-line: #1e3a37;
-  --color-primary: #2dd4bf;
-  --color-primary-dark: #14b8a6;
-  --color-primary-tint: #0f3b37;
-  --color-savings: #fbbf24;
-  --color-savings-tint: #3a2c0a;
-  --color-success: #4ade80;
-  --color-success-tint: #0c2c1a;
-  --color-danger: #f87171;
-  --color-danger-tint: #3b1414;
+/*
+ * Dark values live here once. Both dark selectors below map the tokens onto
+ * these, so a value can never drift between "system dark" and "toggled dark"
+ * the way a second hand-copied block would.
+ *
+ * Dark is composed, not inverted: the ground is darkest, cards sit above it,
+ * and the brand teal lightens to mint so it reads as an accent on dark — which
+ * is exactly why on-primary becomes a deep teal ink rather than staying white.
+ */
+:root {
+  --dk-primary: #2dd4bf;
+  --dk-primary-dark: #14b8a6;
+  --dk-on-primary: #022c28;
+  --dk-primary-tint: #0f3b37;
+  --dk-primary-ink: #5eead4;
+
+  --dk-savings: #fbbf24;
+  --dk-on-savings: #3b2600;
+  --dk-savings-tint: #3a2c0a;
+  --dk-savings-ink: #fcd34d;
+
+  --dk-success: #4ade80;
+  --dk-on-success: #052e16;
+  --dk-success-tint: #0c2c1a;
+  --dk-success-ink: #6ee7a0;
+
+  --dk-danger: #f87171;
+  --dk-on-danger: #3b0a0a;
+  --dk-danger-tint: #3b1414;
+  --dk-danger-ink: #fca5a5;
+
+  --dk-bg: #061412;
+  --dk-surface: #0d1f1d;
+  --dk-surface-2: #132927;
+  --dk-ink: #eefaf8;
+  --dk-muted: #9bb3b0;
+  --dk-line: #1e3a37;
+  --dk-field-line: #577b78;
+  --dk-focus: #2dd4bf;
+
+  /* On a near-black ground a black shadow is invisible, so depth in dark comes
+     from a lighter card plus a deeper, wider cast. */
+  --dk-shadow-card: 0 1px 2px rgb(0 0 0 / 0.5), 0 10px 28px -14px rgb(0 0 0 / 0.75);
+  --dk-shadow-lift: 0 2px 8px rgb(0 0 0 / 0.55), 0 22px 48px -18px rgb(0 0 0 / 0.85);
 }
 
+/* Dark: system preference, unless the user has pinned light. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --color-bg: #061412;
-    --color-surface: #0d1f1d;
-    --color-surface-2: #132927;
-    --color-ink: #eefaf8;
-    --color-muted: #9bb3b0;
-    --color-line: #1e3a37;
-    --color-primary: #2dd4bf;
-    --color-primary-dark: #14b8a6;
-    --color-primary-tint: #0f3b37;
-    --color-savings: #fbbf24;
-    --color-savings-tint: #3a2c0a;
-    --color-success: #4ade80;
-    --color-success-tint: #0c2c1a;
-    --color-danger: #f87171;
-    --color-danger-tint: #3b1414;
+    --color-primary: var(--dk-primary);
+    --color-primary-dark: var(--dk-primary-dark);
+    --color-on-primary: var(--dk-on-primary);
+    --color-primary-tint: var(--dk-primary-tint);
+    --color-primary-ink: var(--dk-primary-ink);
+    --color-savings: var(--dk-savings);
+    --color-on-savings: var(--dk-on-savings);
+    --color-savings-tint: var(--dk-savings-tint);
+    --color-savings-ink: var(--dk-savings-ink);
+    --color-success: var(--dk-success);
+    --color-on-success: var(--dk-on-success);
+    --color-success-tint: var(--dk-success-tint);
+    --color-success-ink: var(--dk-success-ink);
+    --color-danger: var(--dk-danger);
+    --color-on-danger: var(--dk-on-danger);
+    --color-danger-tint: var(--dk-danger-tint);
+    --color-danger-ink: var(--dk-danger-ink);
+    --color-bg: var(--dk-bg);
+    --color-surface: var(--dk-surface);
+    --color-surface-2: var(--dk-surface-2);
+    --color-ink: var(--dk-ink);
+    --color-muted: var(--dk-muted);
+    --color-line: var(--dk-line);
+    --color-field-line: var(--dk-field-line);
+    --color-focus: var(--dk-focus);
+    --shadow-card: var(--dk-shadow-card);
+    --shadow-lift: var(--dk-shadow-lift);
   }
+}
+
+/* Dark: pinned by the user, whatever the system says. */
+:root[data-theme='dark'] {
+  --color-primary: var(--dk-primary);
+  --color-primary-dark: var(--dk-primary-dark);
+  --color-on-primary: var(--dk-on-primary);
+  --color-primary-tint: var(--dk-primary-tint);
+  --color-primary-ink: var(--dk-primary-ink);
+  --color-savings: var(--dk-savings);
+  --color-on-savings: var(--dk-on-savings);
+  --color-savings-tint: var(--dk-savings-tint);
+  --color-savings-ink: var(--dk-savings-ink);
+  --color-success: var(--dk-success);
+  --color-on-success: var(--dk-on-success);
+  --color-success-tint: var(--dk-success-tint);
+  --color-success-ink: var(--dk-success-ink);
+  --color-danger: var(--dk-danger);
+  --color-on-danger: var(--dk-on-danger);
+  --color-danger-tint: var(--dk-danger-tint);
+  --color-danger-ink: var(--dk-danger-ink);
+  --color-bg: var(--dk-bg);
+  --color-surface: var(--dk-surface);
+  --color-surface-2: var(--dk-surface-2);
+  --color-ink: var(--dk-ink);
+  --color-muted: var(--dk-muted);
+  --color-line: var(--dk-line);
+  --color-field-line: var(--dk-field-line);
+  --color-focus: var(--dk-focus);
+  --shadow-card: var(--dk-shadow-card);
+  --shadow-lift: var(--dk-shadow-lift);
 }
 
 /* ------------------------------------------------------------ base layer */
@@ -98,6 +199,7 @@ body {
 :root[data-a11y~='large'] .a11y-hide {
   display: none !important;
 }
+/* Declared after the dark blocks at equal specificity, so it wins in both. */
 :root[data-a11y~='contrast'] {
   --color-bg: #ffffff;
   --color-surface: #ffffff;
@@ -105,11 +207,33 @@ body {
   --color-ink: #000000;
   --color-muted: #2b3a38;
   --color-line: #000000;
+  --color-field-line: #000000;
+  --color-focus: #00443e;
+  /* Every tint is restated, not inherited: this preset can sit on top of the
+     dark theme, and a dark tint under one of these dark inks is unreadable. */
   --color-primary: #005f57;
   --color-primary-dark: #00443e;
+  --color-on-primary: #ffffff;
+  --color-primary-tint: #ccfbf1;
+  --color-primary-ink: #00443e;
   --color-savings: #8a4b00;
+  --color-on-savings: #ffffff;
+  --color-savings-tint: #fef3c7;
+  --color-savings-ink: #6b3a00;
+  /* Here the savings banner is dark brown, not amber, so what sits on it
+     inverts with it: the gradient deepens and the meter goes light. */
+  --color-savings-deep: #5c3200;
+  --color-savings-meter: #ffffff;
   --color-success: #046c2f;
+  --color-on-success: #ffffff;
+  --color-success-tint: #dcfce7;
+  --color-success-ink: #046c2f;
   --color-danger: #a4000e;
+  --color-on-danger: #ffffff;
+  --color-danger-tint: #fee2e2;
+  --color-danger-ink: #a4000e;
+  --shadow-card: none;
+  --shadow-lift: none;
 }
 :root[data-a11y~='contrast'] .card,
 :root[data-a11y~='contrast'] .pill {
@@ -118,9 +242,23 @@ body {
 }
 
 *:focus-visible {
-  outline: 3px solid var(--color-primary);
+  outline: 3px solid var(--color-focus);
   outline-offset: 2px;
   border-radius: 6px;
+}
+
+/*
+ * Surfaces the browser draws for us. Left at their defaults they belong to no
+ * palette: a blue caret and a blue checkbox in a teal product read as unfinished.
+ */
+::selection {
+  background: var(--color-primary-tint);
+  color: var(--color-primary-ink);
+}
+:root {
+  accent-color: var(--color-primary);
+  caret-color: var(--color-primary);
+  scrollbar-color: var(--color-field-line) transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -125,7 +125,7 @@ export default function HomePage() {
         <p className="mt-1 text-sm text-muted">{d.home.sub}</p>
 
         <form
-          className="mt-3.5 flex items-center gap-2 rounded-full border border-line bg-surface p-1.5 shadow-card focus-within:border-primary"
+          className="mt-3.5 flex items-center gap-2 rounded-full border border-field-line bg-surface p-1.5 shadow-card focus-within:border-primary"
           onSubmit={(e) => {
             e.preventDefault()
             void runSearch(query)
@@ -140,7 +140,7 @@ export default function HomePage() {
             placeholder={d.home.searchPlaceholder}
             aria-label={d.home.searchPlaceholder}
             inputMode="search"
-            className="min-w-0 flex-1 bg-transparent py-2.5 text-base outline-none placeholder:text-muted/80"
+            className="min-w-0 flex-1 bg-transparent py-2.5 text-base outline-none placeholder:text-muted"
           />
           <Button type="submit" size="sm" disabled={query.trim().length < 2 || searching} className="shrink-0">
             {searching ? <Loader2 size={16} className="animate-spin" aria-hidden /> : <ArrowRight size={16} aria-hidden />}
@@ -258,7 +258,7 @@ export default function HomePage() {
                   setQuery(p)
                   void runSearch(p)
                 }}
-                className="pill bg-surface hover:border-primary hover:text-primary-dark"
+                className="pill bg-surface hover:border-primary hover:text-primary-ink"
               >
                 {p}
               </button>
@@ -273,7 +273,7 @@ export default function HomePage() {
 
       {/* location */}
       <Card className="flex items-center gap-3">
-        <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-primary-tint text-primary-dark">
+        <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-primary-tint text-primary-ink">
           <MapPin size={20} aria-hidden />
         </span>
         <div className="min-w-0 flex-1">
@@ -305,7 +305,7 @@ export default function HomePage() {
         <ol className="grid grid-cols-3 gap-2">
           {[d.home.step1, d.home.step2, d.home.step3].map((step, i) => (
             <li key={step} className="card flex flex-col gap-1.5 p-3">
-              <span className="grid size-6 place-items-center rounded-full bg-primary text-[0.6875rem] font-extrabold text-white">
+              <span className="grid size-6 place-items-center rounded-full bg-primary text-[0.6875rem] font-extrabold text-on-primary">
                 {i + 1}
               </span>
               <span className="text-xs font-semibold leading-snug">{step}</span>
@@ -314,7 +314,7 @@ export default function HomePage() {
         </ol>
       </section>
 
-      <p className="flex items-start gap-2 rounded-2xl bg-primary-tint/60 px-3.5 py-3 text-xs font-semibold text-primary-dark">
+      <p className="flex items-start gap-2 rounded-2xl bg-primary-tint/60 px-3.5 py-3 text-xs font-semibold text-primary-ink">
         <ShieldCheck size={16} className="mt-0.5 shrink-0" aria-hidden />
         {d.home.trust} <span className="font-bold">{d.app.demoBadge}.</span>
       </p>
@@ -334,7 +334,7 @@ export default function HomePage() {
                 }}
                 className={clsx(
                   'tap w-full rounded-2xl border px-3 py-3 text-left font-semibold',
-                  place.label === a.label ? 'border-primary bg-primary-tint text-primary-dark' : 'border-line bg-surface',
+                  place.label === a.label ? 'border-primary bg-primary-tint text-primary-ink' : 'border-line bg-surface',
                 )}
               >
                 {a.label}
@@ -367,7 +367,7 @@ function ActionTile({
       onClick={onClick}
       className="tap flex flex-col items-center gap-1.5 rounded-2xl border border-line bg-surface p-2 text-center shadow-card transition hover:border-primary hover:bg-primary-tint/40"
     >
-      <span className="grid size-[60px] place-items-center rounded-full bg-primary-tint text-primary-dark">
+      <span className="grid size-[60px] place-items-center rounded-full bg-primary-tint text-primary-ink">
         {busy ? <Loader2 size={22} className="animate-spin" aria-hidden /> : icon}
       </span>
       <span className="text-xs font-semibold leading-tight">{label}</span>

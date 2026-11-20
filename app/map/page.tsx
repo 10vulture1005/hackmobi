@@ -85,7 +85,7 @@ function MapScreen() {
         </Button>
       </header>
 
-      {locationError && <p className="rounded-xl bg-savings-tint px-3 py-2 text-xs font-semibold text-[#92400e]">{d.map.locationDenied}</p>}
+      {locationError && <p className="rounded-xl bg-savings-tint px-3 py-2 text-xs font-semibold text-savings-ink">{d.map.locationDenied}</p>}
 
       <MapView
         centre={place}
@@ -98,7 +98,7 @@ function MapScreen() {
         <button
           onClick={() => setKendraOnly((v) => !v)}
           aria-pressed={kendraOnly}
-          className={clsx('pill', kendraOnly ? 'border-transparent bg-savings text-[#3b2600]' : 'bg-surface')}
+          className={clsx('pill', kendraOnly ? 'border-transparent bg-savings text-on-savings' : 'bg-surface')}
         >
           <span className="size-2 rounded-full bg-savings" aria-hidden />
           {d.map.kendra}
@@ -113,7 +113,7 @@ function MapScreen() {
               key={r}
               onClick={() => setRadiusKm(r)}
               aria-pressed={radiusKm === r}
-              className={clsx('pill', radiusKm === r ? 'border-transparent bg-primary text-white' : 'bg-surface')}
+              className={clsx('pill', radiusKm === r ? 'border-transparent bg-primary text-on-primary' : 'bg-surface')}
             >
               {r} {d.common.km}
             </button>
@@ -126,7 +126,7 @@ function MapScreen() {
           <li key={a.label}>
             <button
               onClick={() => setPlace(a)}
-              className={clsx('pill', place.label === a.label ? 'border-transparent bg-primary-tint text-primary-dark' : 'bg-surface')}
+              className={clsx('pill', place.label === a.label ? 'border-transparent bg-primary-tint text-primary-ink' : 'bg-surface')}
             >
               {a.label}
             </button>
@@ -156,7 +156,7 @@ function MapScreen() {
                 <span
                   className={clsx(
                     'grid size-9 shrink-0 place-items-center rounded-xl',
-                    p.is_jan_aushadhi ? 'bg-savings-tint text-[#92400e]' : 'bg-primary-tint text-primary-dark',
+                    p.is_jan_aushadhi ? 'bg-savings-tint text-savings-ink' : 'bg-primary-tint text-primary-ink',
                   )}
                 >
                   <Store size={17} aria-hidden />

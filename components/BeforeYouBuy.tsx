@@ -40,10 +40,10 @@ export function BeforeYouBuy({
 
   const sections = data
     ? [
-        { icon: <HeartPulse size={18} aria-hidden />, title: d.info.usedFor, items: data.content.common_uses, tone: 'bg-primary-tint text-primary-dark' },
+        { icon: <HeartPulse size={18} aria-hidden />, title: d.info.usedFor, items: data.content.common_uses, tone: 'bg-primary-tint text-primary-ink' },
         { icon: <Info size={18} aria-hidden />, title: d.info.sideEffects, items: data.content.common_side_effects, tone: 'bg-surface-2 text-ink' },
-        { icon: <AlertTriangle size={18} aria-hidden />, title: d.info.stopAndSee, items: data.content.seek_help_if, tone: 'bg-danger-tint text-danger' },
-        { icon: <ShieldAlert size={18} aria-hidden />, title: d.info.careful, items: data.content.who_should_be_careful, tone: 'bg-savings-tint text-[#92400e]' },
+        { icon: <AlertTriangle size={18} aria-hidden />, title: d.info.stopAndSee, items: data.content.seek_help_if, tone: 'bg-danger-tint text-danger-ink' },
+        { icon: <ShieldAlert size={18} aria-hidden />, title: d.info.careful, items: data.content.who_should_be_careful, tone: 'bg-savings-tint text-savings-ink' },
       ].filter((s) => s.items.length > 0)
     : []
 
@@ -85,7 +85,7 @@ export function BeforeYouBuy({
       {data && (
         <div className="space-y-4">
           {data.translation_notice && (
-            <p className="rounded-xl bg-savings-tint px-3 py-2 text-xs font-semibold text-[#92400e]">
+            <p className="rounded-xl bg-savings-tint px-3 py-2 text-xs font-semibold text-savings-ink">
               {d.info.translationNotice}
             </p>
           )}

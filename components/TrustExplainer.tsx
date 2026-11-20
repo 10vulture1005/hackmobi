@@ -78,7 +78,7 @@ export function TrustExplainer({
       <ul className="space-y-3">
         {lines.map((l) => (
           <li key={l.text} className="flex items-start gap-3">
-            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-primary-tint text-primary-dark">
+            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-primary-tint text-primary-ink">
               {l.icon}
             </span>
             <p className="pt-1.5 text-[0.9375rem] font-medium leading-snug">{l.text}</p>

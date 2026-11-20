@@ -63,7 +63,7 @@ export default function SchemesPage() {
             onChange={(e) => setQuestion(e.target.value)}
             rows={2}
             placeholder={d.schemes.placeholder}
-            className="w-full resize-none rounded-2xl border border-line bg-surface px-3.5 py-2.5 text-base outline-none focus:border-primary"
+            className="w-full resize-none rounded-2xl border border-field-line bg-surface px-3.5 py-2.5 text-base outline-none focus:border-primary"
           />
         </label>
 
@@ -74,7 +74,7 @@ export default function SchemesPage() {
               value={age}
               onChange={(e) => setAge(e.target.value)}
               inputMode="numeric"
-              className="tap w-full rounded-xl border border-line bg-surface px-3 py-2 outline-none focus:border-primary"
+              className="tap w-full rounded-xl border border-field-line bg-surface px-3 py-2 outline-none focus:border-primary"
             />
           </label>
           <label className="block">
@@ -82,7 +82,7 @@ export default function SchemesPage() {
             <select
               value={state}
               onChange={(e) => setState(e.target.value)}
-              className="tap w-full rounded-xl border border-line bg-surface px-3 py-2 outline-none focus:border-primary"
+              className="tap w-full rounded-xl border border-field-line bg-surface px-3 py-2 outline-none focus:border-primary"
             >
               {STATES.map((s) => (
                 <option key={s}>{s}</option>
@@ -94,7 +94,7 @@ export default function SchemesPage() {
             <select
               value={income}
               onChange={(e) => setIncome(e.target.value)}
-              className="tap w-full rounded-xl border border-line bg-surface px-3 py-2 outline-none focus:border-primary"
+              className="tap w-full rounded-xl border border-field-line bg-surface px-3 py-2 outline-none focus:border-primary"
             >
               <option value="">{d.schemes.optional}</option>
               {INCOME.map((s) => (
@@ -108,7 +108,7 @@ export default function SchemesPage() {
               value={condition}
               onChange={(e) => setCondition(e.target.value)}
               placeholder="diabetes, TB, cancer…"
-              className="tap w-full rounded-xl border border-line bg-surface px-3 py-2 outline-none focus:border-primary"
+              className="tap w-full rounded-xl border border-field-line bg-surface px-3 py-2 outline-none focus:border-primary"
             />
           </label>
         </div>

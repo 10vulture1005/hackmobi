@@ -19,7 +19,7 @@ export function TopBar() {
       <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur">
         <div className="mx-auto flex w-full max-w-xl items-center gap-2 px-4 py-2.5">
           <Link href="/" className="flex items-center gap-2 font-extrabold tracking-tight">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary text-white shadow-card">
+            <span className="grid size-9 place-items-center rounded-xl bg-primary text-on-primary shadow-card">
               <Pill size={19} aria-hidden />
             </span>
             <span className="leading-none">
@@ -41,7 +41,7 @@ export function TopBar() {
                   aria-pressed={language === l}
                   className={clsx(
                     'rounded-full px-2.5 py-1.5 text-xs font-bold transition',
-                    language === l ? 'bg-primary text-white' : 'text-muted hover:text-ink',
+                    language === l ? 'bg-primary text-on-primary' : 'text-muted hover:text-ink',
                   )}
                 >
                   {LANGUAGE_LABELS[l]}
@@ -114,10 +114,10 @@ function ToggleRow({
         aria-pressed={on}
         className={clsx(
           'tap flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left font-semibold transition',
-          on ? 'border-primary bg-primary-tint text-primary-dark' : 'border-line bg-surface hover:bg-surface-2',
+          on ? 'border-primary bg-primary-tint text-primary-ink' : 'border-line bg-surface hover:bg-surface-2',
         )}
       >
-        <span className={clsx('grid size-9 shrink-0 place-items-center rounded-xl', on ? 'bg-primary text-white' : 'bg-surface-2 text-muted')}>
+        <span className={clsx('grid size-9 shrink-0 place-items-center rounded-xl', on ? 'bg-primary text-on-primary' : 'bg-surface-2 text-muted')}>
           {icon}
         </span>
         <span className="flex-1">{label}</span>

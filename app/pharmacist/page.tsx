@@ -67,7 +67,7 @@ export default function PharmacistPage() {
             <select
               defaultValue=""
               onChange={(e) => setPharmacyId(e.target.value || null)}
-              className="tap w-full rounded-xl border border-line bg-surface px-3 py-2.5 outline-none focus:border-primary"
+              className="tap w-full rounded-xl border border-field-line bg-surface px-3 py-2.5 outline-none focus:border-primary"
             >
               <option value="">Select…</option>
               {options.map((o) => (
@@ -101,7 +101,7 @@ export default function PharmacistPage() {
             aria-current={tab === key}
             className={clsx(
               'tap rounded-full px-4 py-2 text-sm font-bold transition',
-              tab === key ? 'bg-primary text-white' : 'border border-line bg-surface text-muted hover:text-ink',
+              tab === key ? 'bg-primary text-on-primary' : 'border border-line bg-surface text-muted hover:text-ink',
             )}
           >
             {label}
@@ -151,7 +151,7 @@ function Header({
 
   return (
     <Card className="flex flex-wrap items-center gap-3">
-      <span className="grid size-11 place-items-center rounded-xl bg-primary text-white">
+      <span className="grid size-11 place-items-center rounded-xl bg-primary text-on-primary">
         <Store size={20} aria-hidden />
       </span>
       <div className="min-w-0 flex-1">
@@ -172,7 +172,7 @@ function Header({
         </p>
       </div>
       {stale && (
-        <p className="rounded-xl bg-savings-tint px-3 py-2 text-xs font-bold text-[#92400e]">
+        <p className="rounded-xl bg-savings-tint px-3 py-2 text-xs font-bold text-savings-ink">
           Update your stock to appear higher in results
         </p>
       )}
@@ -230,7 +230,7 @@ function Queue({ pharmacyId, onToast }: { pharmacyId: string; onToast: (m: strin
         </Card>
         <Card>
           <p className="text-xs font-bold uppercase tracking-wide text-muted">Customer savings</p>
-          <p className="tabular text-2xl font-extrabold text-savings">{rupee(savings)}</p>
+          <p className="tabular text-2xl font-extrabold text-savings-ink">{rupee(savings)}</p>
         </Card>
       </div>
 
@@ -406,7 +406,7 @@ function Inventory({ pharmacyId, onToast }: { pharmacyId: string; onToast: (m: s
   return (
     <div className="space-y-3">
       <Card className="flex flex-wrap items-center gap-2">
-        <label className="flex min-w-[14rem] flex-1 items-center gap-2 rounded-full border border-line px-3 py-2">
+        <label className="flex min-w-[14rem] flex-1 items-center gap-2 rounded-full border border-field-line px-3 py-2">
           <Search size={16} className="text-muted" aria-hidden />
           <input
             value={q}
@@ -426,7 +426,7 @@ function Inventory({ pharmacyId, onToast }: { pharmacyId: string; onToast: (m: s
             key={key}
             onClick={() => setFilter(key)}
             aria-pressed={filter === key}
-            className={clsx('pill', filter === key ? 'border-transparent bg-primary text-white' : 'bg-surface')}
+            className={clsx('pill', filter === key ? 'border-transparent bg-primary text-on-primary' : 'bg-surface')}
           >
             {label}
           </button>
@@ -484,7 +484,7 @@ function Inventory({ pharmacyId, onToast }: { pharmacyId: string; onToast: (m: s
                             [r.product_id]: { ...prev[r.product_id], price: Number(e.target.value) },
                           }))
                         }
-                        className="tabular w-24 rounded-lg border border-line bg-surface px-2 py-1 text-right outline-none focus:border-primary"
+                        className="tabular w-24 rounded-lg border border-field-line bg-surface px-2 py-1 text-right outline-none focus:border-primary"
                       />
                     </td>
                     <td className="tabular px-3 py-2 text-right text-muted">{rupee(price / r.pack_size)}</td>
@@ -559,7 +559,7 @@ function Import({ pharmacyId, onToast }: { pharmacyId: string; onToast: (m: stri
             const file = e.dataTransfer.files?.[0]
             if (file) setCsv(await file.text())
           }}
-          className="rounded-2xl border-2 border-dashed border-line p-4"
+          className="rounded-2xl border-2 border-dashed border-field-line p-4"
         >
           <textarea
             value={csv}

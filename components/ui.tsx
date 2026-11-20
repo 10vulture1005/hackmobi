@@ -24,12 +24,12 @@ export function Button({
         size === 'lg' && 'px-6 py-3.5 text-[1.0625rem]',
         size === 'md' && 'px-5 py-3 text-[0.9375rem]',
         size === 'sm' && 'min-h-0 px-3.5 py-2 text-sm',
-        variant === 'primary' && 'bg-primary text-white hover:bg-primary-dark',
-        variant === 'savings' && 'bg-savings text-[#3b2600] hover:brightness-105',
+        variant === 'primary' && 'bg-primary text-on-primary hover:bg-primary-dark',
+        variant === 'savings' && 'bg-savings text-on-savings hover:brightness-105',
         variant === 'secondary' &&
           'border border-line bg-surface text-ink hover:bg-surface-2',
         variant === 'ghost' && 'text-primary hover:bg-primary-tint',
-        variant === 'danger' && 'bg-danger text-white hover:brightness-110',
+        variant === 'danger' && 'bg-danger text-on-danger hover:brightness-110',
         className,
       )}
     >
@@ -55,10 +55,10 @@ export function Badge({
         'pill',
         tone === 'neutral' && 'bg-surface-2 text-ink',
         tone === 'muted' && 'border-dashed bg-transparent text-muted',
-        tone === 'success' && 'border-transparent bg-success-tint text-success',
-        tone === 'savings' && 'border-transparent bg-savings-tint text-[#92400e]',
-        tone === 'danger' && 'border-transparent bg-danger-tint text-danger',
-        tone === 'primary' && 'border-transparent bg-primary-tint text-primary-dark',
+        tone === 'success' && 'border-transparent bg-success-tint text-success-ink',
+        tone === 'savings' && 'border-transparent bg-savings-tint text-savings-ink',
+        tone === 'danger' && 'border-transparent bg-danger-tint text-danger-ink',
+        tone === 'primary' && 'border-transparent bg-primary-tint text-primary-ink',
         className,
       )}
     >
@@ -137,7 +137,7 @@ export function Sheet({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
-            className="absolute inset-0 bg-[#031412]/55 backdrop-blur-[2px]"
+            className="absolute inset-0 bg-scrim/55 backdrop-blur-[2px]"
             onClick={onClose}
           />
           <motion.div
@@ -261,7 +261,7 @@ export function EmptyState({
 }) {
   return (
     <div className="card flex flex-col items-center gap-3 px-6 py-10 text-center">
-      <div className="grid size-14 place-items-center rounded-full bg-primary-tint text-primary-dark">{icon}</div>
+      <div className="grid size-14 place-items-center rounded-full bg-primary-tint text-primary-ink">{icon}</div>
       <h3 className="text-base font-bold">{title}</h3>
       {body && <p className="max-w-sm text-sm text-muted">{body}</p>}
       {action}

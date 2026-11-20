@@ -39,7 +39,7 @@ export function MicButton({
         className={clsx(
           'tap grid size-[60px] place-items-center rounded-full border-2 transition',
           listening
-            ? 'listening border-primary bg-primary text-white'
+            ? 'listening border-primary bg-primary text-on-primary'
             : 'border-line bg-surface text-primary hover:bg-primary-tint',
         )}
       >

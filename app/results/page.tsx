@@ -237,7 +237,7 @@ function Results() {
 
       {/* sticky savings banner */}
       <div className="sticky top-[58px] z-30 -mx-1 px-1">
-        <div className="overflow-hidden rounded-[20px] bg-gradient-to-br from-savings to-[#ea8c05] p-4 text-[#3b2600] shadow-lift">
+        <div className="overflow-hidden rounded-[20px] bg-gradient-to-br from-savings to-savings-deep p-4 text-on-savings shadow-lift">
           <p className="text-sm font-bold uppercase tracking-wide opacity-80">
             {basket.items.length > 1 ? d.results.title : d.results.doctorWrote}
           </p>
@@ -256,7 +256,7 @@ function Results() {
             <>
               <div className="mt-2.5 h-2.5 w-full overflow-hidden rounded-full bg-black/15">
                 <div
-                  className="h-full rounded-full bg-[#1f6b3a] transition-[width] duration-700"
+                  className="h-full rounded-full bg-savings-meter transition-[width] duration-700"
                   style={{ width: `${Math.max(6, Math.min(100, progress))}%` }}
                 />
               </div>
@@ -288,7 +288,7 @@ function Results() {
       {basket.duplicate_salt_warnings.map((w) => (
         <p
           key={String(w.params.salt)}
-          className="flex items-start gap-2 rounded-2xl bg-danger-tint px-3.5 py-3 text-sm font-bold text-danger"
+          className="flex items-start gap-2 rounded-2xl bg-danger-tint px-3.5 py-3 text-sm font-bold text-danger-ink"
         >
           <AlertTriangle size={17} className="mt-0.5 shrink-0" aria-hidden />
           {t(d.results.duplicateSalt, { salt: String(w.params.salt) })}

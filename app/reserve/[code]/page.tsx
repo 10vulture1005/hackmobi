@@ -96,7 +96,7 @@ export default function ReservationPage() {
                   <span
                     className={clsx(
                       'grid size-9 place-items-center rounded-full border-2 transition',
-                      done ? 'border-primary bg-primary text-white' : 'border-line bg-surface text-muted',
+                      done ? 'border-primary bg-primary text-on-primary' : 'border-line bg-surface text-muted',
                     )}
                   >
                     {i === 0 ? <Clock size={16} aria-hidden /> : i === 1 ? <CheckCircle2 size={16} aria-hidden /> : <PackageCheck size={16} aria-hidden />}
@@ -140,7 +140,7 @@ export default function ReservationPage() {
           <span className="tabular">{rupee(total)}</span>
         </p>
         {res.estimated_savings > 0 && (
-          <p className="rounded-xl bg-savings px-3 py-2 text-sm font-extrabold text-[#3b2600]">
+          <p className="rounded-xl bg-savings px-3 py-2 text-sm font-extrabold text-on-savings">
             {t(d.results.save, { amount: rupee(res.estimated_savings) })}
           </p>
         )}
@@ -150,7 +150,7 @@ export default function ReservationPage() {
         <p
           className={clsx(
             'flex items-start gap-2 rounded-2xl px-3.5 py-3 text-sm font-bold',
-            res.rx_verified_by_pharmacist ? 'bg-success-tint text-success' : 'bg-savings-tint text-[#92400e]',
+            res.rx_verified_by_pharmacist ? 'bg-success-tint text-success-ink' : 'bg-savings-tint text-savings-ink',
           )}
         >
           <Lock size={16} className="mt-0.5 shrink-0" aria-hidden />
